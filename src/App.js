@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
+import Header from './components/Header'
 import './App.css';
+import NotebooksContainer from './containers/NotebooksContainer'
+//import logo from './logo.svg';
 
 class App extends Component {
   render() {
@@ -8,18 +10,27 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1>
-            notebook !!!!
-          </h1>
-          <a
+          <div className="navbar">
+            <Header />
+          </div>
+        </header>
+
+        <div className="sidebar">
+          <sidebar>Sidebar</sidebar>
+        </div>
+
+        <div className="main">
+          <p><NotebooksContainer /></p>
+        </div> 
+         {/* <a
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
           >
             Learn React
-          </a>
-        </header>
+          </a> */}
+
       </div>
     );
   }
