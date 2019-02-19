@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Header from './components/Header'
 import './App.css';
+import Navigation from './components/Navigation'
+// import Login from './container/Login';
+// import Signup from './container/SignUp';
+// import UserProfile from './container/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
 //import logo from './logo.svg';
 
@@ -11,7 +14,7 @@ class App extends Component {
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="navbar">
-            <Header />
+            <Navigation />
           </div>
         </header>
 
