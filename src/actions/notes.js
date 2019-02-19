@@ -1,4 +1,4 @@
-const notebooksLink = `/api/v1/notes`
+const notesLink = `/api/v1/notes`
 
 //action creators
 // const collectNotes = notes => {
