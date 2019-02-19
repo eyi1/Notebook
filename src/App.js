@@ -19,11 +19,11 @@ class App extends Component {
         </header>
 
         <div className="sidebar">
-          <sidebar>Sidebar</sidebar>
+          Sidebar
         </div>
 
         <div className="main">
-          <p><NotebooksContainer /></p>
+          <NotebooksContainer />
         </div> 
          {/* <a
             className="App-link"
