@@ -5,7 +5,7 @@ export default class NoteBooksContainer extends React.Component {
     render(){
         return(
             <div>
-                <NotebookSideBar />
+                {/* <NotebookSideBar /> */}
                 <NotebookInput />
             </div>
         )        
