@@ -5,7 +5,7 @@ export default class NotebookInput extends React.Component {
         return(
             <div>
                 <form>
-                    
+                    <input></input>
                 </form>
             </div>
         )
