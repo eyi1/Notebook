@@ -15,14 +15,9 @@ export default class NotebookInput extends React.Component {
         })
     }
 
-    // handleOnChange(e){
-    //     this.setState=({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
     handleOnSubmit = event => {
         event.preventDefault();
+
         
     }
 
