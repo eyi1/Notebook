@@ -32,9 +32,9 @@ const notebooksLink = `/api/v1/notes`
 
 // Async Actions
 
-export const getNotes = () => {
-    return (dispatch) => {
-        return fetch(notebooksLink)
-            .then(response => console.log(response.json()))
-    }
-}
+// export const getNotes = () => {
+//     return (dispatch) => {
+//         return fetch(notebooksLink)
+//             .then(response => console.log(response.json()))
+//     }
+// }
