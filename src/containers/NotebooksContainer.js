@@ -1,8 +1,11 @@
 import React from 'react'
 import NotebookInput from '../components/NotebookInput'
+import NoteBooks from '../components/Notebooks'
+import { connect } from 'react-redux'
+import {getNotebooks} from '../actions/notebooks'
 //import Popup from "reactjs-popup";
 
-export default class NoteBooksContainer extends React.Component {  
+class NoteBooksContainer extends React.Component {  
     constructor(){
         super();
         this.state = {
@@ -28,6 +31,10 @@ export default class NoteBooksContainer extends React.Component {
         }
     }
    
+    componentDidMount(){
+        this.props.getNotebooks()
+    }
+
     render(){
         return(
             <div>
@@ -38,7 +45,18 @@ export default class NoteBooksContainer extends React.Component {
                 <div>
                     {this._renderSubComponent()}
                 </div>
+                <div>
+                    <NoteBooks />
+                </div>
             </div>
         )        
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        notebooksList: state.notebooks
+    }
+  }
+
+export default connect (mapStateToProps, {getNotebooks})(NoteBooksContainer)
