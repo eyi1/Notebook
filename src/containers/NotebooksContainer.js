@@ -18,7 +18,7 @@ class NoteBooksContainer extends React.Component {
     handleClick(component, e){
         console.log(component);
         this.setState({
-            render: component,
+           // render: component,
             show: true
         });        
     }
@@ -39,22 +39,29 @@ class NoteBooksContainer extends React.Component {
     }
 
     render(){
+        let close = () => this.setState({ show: false});
         return(
             <div>
                 {/* <NotebookSideBar /> */}
                 <div>
                     {/* <button onClick={this.handleClick.bind(this, 'notebookInput')}> + new notebook</button> */}
+                      
                     <Button
                         bsStyle="primary"
-                         bsSize="large"
-                        //  onClick={() => this.setState({ show: true})}
-                        onClick={this.handleClick.bind(this, 'notebookInput')}
+                         bsSize="large"                      
+                         onClick={() => this.setState({ show: true})}
+                       // onClick={this.handleClick.bind(this, 'notebookInput')}
                      >
-                     new notebook
+                     + new notebook
                     </Button>
+                    <NotebookInput
+                         modal={this.state.show}
+                         onHide={close}
+                    />
+                  
                 </div>
                 <div>
-                    {this._renderSubComponent()}
+                    {/* {this._renderSubComponent()} */}
                 </div>
                 <div>
                     <NoteBooks notebooksList={this.props.notebooksList}/> 
