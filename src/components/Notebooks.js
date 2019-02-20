@@ -2,10 +2,12 @@ import React from 'react'
 import Notebook from './Notebook'
 //import Table from 'react-bootstrap/Table'
 import {Container, Row, Col }from 'react-bootstrap'
+//import { connect } from 'react-redux'
+//import {deleteNotebook} from '../actions/notebooks'
 
 class Notebooks extends React.Component {     
     render(){
-        const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
+        const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} deleteNotebook={this.props.deleteNotebook}/>)
         //this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
         
         return(
@@ -27,15 +29,3 @@ class Notebooks extends React.Component {
 
 
 export default Notebooks
-
-            {/* <Table responsive="sm"> 
-                 <thead>
-                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Created By</th>
-                        <th>Posted</th>
-                        <th>Actions</th>
-                     </tr>
-                 </thead>
-            </Table> */}
