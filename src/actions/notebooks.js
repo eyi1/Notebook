@@ -32,23 +32,26 @@ export const getNotebooks = () => {
     }
 }
 
-export const createNotebook = notebook => {
-    // console.log(notebook = notebook.name)
-    // console.log(typeof(notebook))
+export const createNotebook = notebookName => {
+    //console.log(notebook = notebook.notebookName)
+    console.log({notebookName})
+    console.log(typeof(notebookName))
     return(dispatch) => {
         
-        fetch(`${notebooksLink}`, {
+        fetch(notebooksLink, {
             method: 'POST',
-            headers : new Headers(),
-            //body:JSON.stringify({notebook: notebook})
-            body: {notebook: notebook}
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({name: notebookName})
+           //body: {notebook: notebook.name}
         })
-        .then(response => console.log(response))
-        // .then(response => response.json())
-        // .then(notebook => {
-            
-        //     dispatch(addNotebook(notebook))
-        // })
-        // .catch(error => console.log(error))
+        //.then(response => console.log(response))
+        .then(response => response.json())
+        .then(notebook => {             
+            dispatch(addNotebook(notebook))
+             //debugger;
+        })
+         .catch(error => console.log(error))
     }
 }
