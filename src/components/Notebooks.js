@@ -1,6 +1,7 @@
 import React from 'react'
 import Notebook from './Notebook'
-import Table from 'react-bootstrap/Table'
+//import Table from 'react-bootstrap/Table'
+import {Container, Row, Col }from 'react-bootstrap'
 
 class Notebooks extends React.Component {     
     render(){
@@ -9,7 +10,25 @@ class Notebooks extends React.Component {
         
         return(
             <div className="NotebooksTable">
-             <Table responsive="md"> 
+                <Container>
+                    <Row>
+                        <Col sm><strong>ID</strong></Col>
+                        <Col sm><strong>Name</strong></Col>
+                        <Col sm><strong>Created By</strong></Col>
+                        <Col sm><strong>Posted</strong></Col>
+                        <Col sm><strong>Actions</strong></Col>
+                    </Row>
+                </Container>
+                {renderNotebooks}
+            </div>  
+        )
+    }
+}
+
+
+export default Notebooks
+
+            {/* <Table responsive="sm"> 
                  <thead>
                      <tr>
                         <th>ID</th>
@@ -19,16 +38,4 @@ class Notebooks extends React.Component {
                         <th>Actions</th>
                      </tr>
                  </thead>
-            </Table>
-                <div className="row">
-                    <div className="col-md-5">
-                        {renderNotebooks}
-                     </div>
-                 </div>
-             </div>
-        )
-    }
-}
-
-
-export default Notebooks
+            </Table> */}
