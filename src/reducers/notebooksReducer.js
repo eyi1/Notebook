@@ -11,7 +11,8 @@ export default (state=[], action) => {
 
         case types.ADD_NOTEBOOK:
             console.log(action.notebook)
-
+            //return state.concat(action.notebook)
+            return [...state, action.notebook]
         
     }
 }
