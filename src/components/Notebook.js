@@ -18,7 +18,7 @@ const Notebook = (props) =>
                             
                             <Dropdown.Menu>            
                                 <Dropdown.Item as="button">Edit</Dropdown.Item>
-                                <Dropdown.Item as="button">Delete</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => props.deleteNotebook(props.notebook.id)}>Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Col>
