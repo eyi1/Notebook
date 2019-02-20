@@ -1,11 +1,13 @@
 import React from 'react'
 
-class Notebook extends React.Component {
-    render(){
-        return(
-            <div>{this.props.notebook.name}</div>
-        )
-    }
-}
+const Notebook = (props) =>
+    <div className="row">
+        <div className="col-md-4">
+            {props.notebook.id}
+        </div>
+        <div className="col-md-6">
+            {props.notebook.name}
+        </div>
+    </div>
 
 export default Notebook
