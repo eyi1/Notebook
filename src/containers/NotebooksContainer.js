@@ -2,8 +2,9 @@ import React from 'react'
 import NotebookInput from '../components/NotebookInput'
 import NoteBooks from '../components/Notebooks'
 import { connect } from 'react-redux'
-import {getNotebooks} from '../actions/notebooks'
+import {getNotebooks, deleteNotebook} from '../actions/notebooks'
 import { Button } from 'react-bootstrap';
+
 //import Popup from "reactjs-popup";
 
 class NoteBooksContainer extends React.Component {  
@@ -33,7 +34,7 @@ class NoteBooksContainer extends React.Component {
             return <NotebookInput modal={this.state.show} />
         }
     }
-   
+
     componentDidMount(){
         this.props.getNotebooks()
     }
@@ -64,7 +65,7 @@ class NoteBooksContainer extends React.Component {
                     {/* {this._renderSubComponent()} */}
                 </div>
                 <div>
-                    <NoteBooks notebooksList={this.props.notebooksList}/> 
+                    <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
                 </div>
             </div>
         )        
@@ -79,4 +80,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect (mapStateToProps, {getNotebooks})(NoteBooksContainer)
+export default connect (mapStateToProps, {getNotebooks, deleteNotebook})(NoteBooksContainer)
