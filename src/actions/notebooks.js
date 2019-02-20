@@ -9,12 +9,13 @@ const setNotebooks = notebooks => {
     }
 }
 
-// const addNotebook = notebook => {
-//     return {
-//         type: 'ADD_NOTEBOOK',
-//         notebook
-//     }
-// }
+const addNotebook = notebook => {
+    console.log(notebook)
+    return {
+        type: 'ADD_NOTEBOOK',
+        notebook
+    }
+}
 
 // //reducer
 
@@ -25,7 +26,29 @@ export const getNotebooks = () => {
         .then(response => response.json())
         .then(notebooks => {
           dispatch(setNotebooks(notebooks))
-          debugger;
+          //debugger;
         })
+        .catch(error => console.log(error))
+    }
+}
+
+export const createNotebook = notebook => {
+    // console.log(notebook = notebook.name)
+    // console.log(typeof(notebook))
+    return(dispatch) => {
+        
+        fetch(`${notebooksLink}`, {
+            method: 'POST',
+            headers : new Headers(),
+            //body:JSON.stringify({notebook: notebook})
+            body: {notebook: notebook}
+        })
+        .then(response => console.log(response))
+        // .then(response => response.json())
+        // .then(notebook => {
+            
+        //     dispatch(addNotebook(notebook))
+        // })
+        // .catch(error => console.log(error))
     }
 }
