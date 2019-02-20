@@ -3,20 +3,23 @@ import NotebookInput from '../components/NotebookInput'
 import NoteBooks from '../components/Notebooks'
 import { connect } from 'react-redux'
 import {getNotebooks} from '../actions/notebooks'
+import { Button } from 'react-bootstrap';
 //import Popup from "reactjs-popup";
 
 class NoteBooksContainer extends React.Component {  
     constructor(){
         super();
         this.state = {
-            render: ''
+            render: '',
+            show: false,
         }
     }
      
     handleClick(component, e){
         console.log(component);
         this.setState({
-            render: component
+            render: component,
+            show: true
         });        
     }
     
@@ -27,7 +30,7 @@ class NoteBooksContainer extends React.Component {
         //     return ''
         //     }
         if (this.state.render === 'notebookInput'){
-            return <NotebookInput />
+            return <NotebookInput modal={this.state.show} />
         }
     }
    
@@ -40,13 +43,21 @@ class NoteBooksContainer extends React.Component {
             <div>
                 {/* <NotebookSideBar /> */}
                 <div>
-                    <button onClick={this.handleClick.bind(this, 'notebookInput')}> + new notebook</button>
+                    {/* <button onClick={this.handleClick.bind(this, 'notebookInput')}> + new notebook</button> */}
+                    <Button
+                        bsStyle="primary"
+                         bsSize="large"
+                        //  onClick={() => this.setState({ show: true})}
+                        onClick={this.handleClick.bind(this, 'notebookInput')}
+                     >
+                     new notebook
+                    </Button>
                 </div>
                 <div>
                     {this._renderSubComponent()}
                 </div>
                 <div>
-                    <NoteBooks />
+                    <NoteBooks notebooksList={this.props.notebooksList}/> 
                 </div>
             </div>
         )        
@@ -54,7 +65,9 @@ class NoteBooksContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state.notebooks)
     return {
+        
         notebooksList: state.notebooks
     }
   }
