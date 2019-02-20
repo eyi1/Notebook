@@ -10,9 +10,16 @@ const setNotebooks = notebooks => {
 }
 
 const addNotebook = notebook => {
-    console.log(notebook)
+    //console.log(notebook)
     return {
-        type: 'ADD_NOTEBOOK',
+        type: types.ADD_NOTEBOOK,
+        notebook
+    }
+}
+
+const destroyNotebook = notebook => {
+    return{
+        type: types.DELETE_NOTEBOOK,
         notebook
     }
 }
@@ -53,5 +60,22 @@ export const createNotebook = notebookName => {
              //debugger;
         })
          .catch(error => console.log(error))
+    }
+}
+
+export const DeleteNotebook = (notebookId) => {
+    return(dispatch) => {
+        fetch(`${notebooksLink}/${notebookId}`, {
+            method: 'DELETE',
+            headers : {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(notebook => {
+          dispatch(destroyNotebook(notebook))
+          //debugger;
+        })
+        .catch(error => console.log(error))
     }
 }
