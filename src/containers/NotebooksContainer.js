@@ -55,11 +55,12 @@ class NoteBooksContainer extends React.Component {
                      >
                      + new notebook
                     </Button>
+                    
                     <NotebookInput
                          modal={this.state.show}
                          onHide={close}
-                    />
-                  
+                    />      
+                               
                 </div>
                 <div>
                     {/* {this._renderSubComponent()} */}
