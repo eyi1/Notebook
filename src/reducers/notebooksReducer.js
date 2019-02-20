@@ -13,10 +13,14 @@ export default (state=[], action) => {
             return [...state, action.notebook]
         
         case types.DELETE_NOTEBOOK:
-        //     console.log(state)
-            const notebooks = state.filter(notebook => notebook.id !== action.id)
+            const notebooks = state.filter(notebook => notebook.id !== action.notebookId)
             return notebooks
-
+            // let idx = state.map(notebook => notebook.id).indexOf(action.id)
+            // return [
+            //     ...state.slice(0, idx),
+            //     ...state.slice(idx + 1)
+            //   ]
+      
         default:
         return state       
     }
