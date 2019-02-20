@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table'
 
 class Notebooks extends React.Component {     
     render(){
-        //const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook.name} />)
+        //const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
         return(
             <div className="NotebooksTable">
              <Table responsive="md"> 
