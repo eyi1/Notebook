@@ -17,14 +17,14 @@ const addNotebook = notebook => {
     }
 }
 
-const destroyNotebook = notebook => {
+const destroyNotebook = notebookId => {
     return{
         type: types.DELETE_NOTEBOOK,
-        notebook
+        notebookId
     }
 }
 
-// //reducer
+//reducer
 
 export const getNotebooks = () => {
     return(dispatch) => {
@@ -51,7 +51,6 @@ export const createNotebook = notebookName => {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({name: notebookName})
-           //body: {notebook: notebook.name}
         })
         //.then(response => console.log(response))
         .then(response => response.json())
@@ -63,7 +62,7 @@ export const createNotebook = notebookName => {
     }
 }
 
-export const DeleteNotebook = (notebookId) => {
+export const deleteNotebook = (notebookId) => {
     return(dispatch) => {
         fetch(`${notebooksLink}/${notebookId}`, {
             method: 'DELETE',
@@ -71,10 +70,8 @@ export const DeleteNotebook = (notebookId) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => response.json())
-        .then(notebook => {
-          dispatch(destroyNotebook(notebook))
-          //debugger;
+        .then(response => {
+          dispatch(destroyNotebook(notebookId))
         })
         .catch(error => console.log(error))
     }
