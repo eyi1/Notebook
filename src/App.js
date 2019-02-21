@@ -3,7 +3,7 @@ import './App.css';
 import Navigation from './components/Navigation'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
-// import Login from './containers/Login';
+import Login from './containers/Login';
 // import UserProfile from './containers/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
 //import logo from './logo.svg';
@@ -18,6 +18,7 @@ class App extends Component {
           <Navigation />
           <Router>
              <Route exact path="/signup" component={Signup} />
+             <Route exact path="/login" component={Login} />
           </Router>
           </div>
         </header>
