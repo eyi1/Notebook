@@ -1,5 +1,7 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap'
+// import { connect } from 'react-redux'
+// import { getNotes } from '../actions/noteActions'
 
 class NoteInput extends React.Component{
     constructor(){
@@ -20,6 +22,7 @@ class NoteInput extends React.Component{
 
     handOnSubmit = event => {
         event.preventDefault();
+        //this.getNotes(this.state)
     }
 
     render(){
