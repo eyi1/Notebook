@@ -36,18 +36,19 @@ class NoteBooksContainer extends React.Component {
         let close = () => this.setState({ show: false});
         return(
             <div>
-                <div>                 
-                   <Button
+                <div class="text-center">    
+                  <div class="container-fluid">             
+                   <Button className="addNotebook-btn"
                         bsStyle="primary"
                          bsSize="large"                      
                          onClick={() => this.setState({ show: true})}
                      >
                      + new notebook
                     </Button>
-                    
-                    <NotebookInput
-                         modal={this.state.show}
-                         onHide={close}
+                  </div>          
+                  <NotebookInput
+                    modal={this.state.show}
+                    onHide={close}
                     />                                 
                 </div>
                 
