@@ -12,11 +12,11 @@ class Notebooks extends React.Component {
             <div className="table">
                 <Container>
                     <Row>
-                        <Col md><strong>ID</strong></Col>
-                        <Col md><strong>Name</strong></Col>
-                        <Col md><strong>Created By</strong></Col>
-                        <Col md><strong>Posted</strong></Col>
-                        <Col md><strong>Actions</strong></Col>
+                        <Col md="2"><strong>ID</strong></Col>
+                        <Col md="4"><strong>Name</strong></Col>
+                        <Col md="2"><strong>Created By</strong></Col>
+                        <Col md="2"><strong>Posted</strong></Col>
+                        <Col md="2"><strong>Actions</strong></Col>
                     </Row>
                 </Container>
                 {renderNotebooks}
