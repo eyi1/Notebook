@@ -5,12 +5,11 @@ class Login extends React.Component {
     constructor(){
         super()
         this.state={
-            name: '',
             email: '',
             password: '',
         }
     }
-    
+
     render(){
         return(
             <div>
