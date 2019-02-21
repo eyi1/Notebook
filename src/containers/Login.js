@@ -2,6 +2,15 @@ import React from 'react'
 import { Form, Button, Col } from 'react-bootstrap'
 
 class Login extends React.Component {
+    constructor(){
+        super()
+        this.state={
+            name: '',
+            email: '',
+            password: '',
+        }
+    }
+    
     render(){
         return(
             <div>
