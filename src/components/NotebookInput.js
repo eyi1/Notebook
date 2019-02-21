@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { Button } from 'react-bootstrap';
-import { createNotebook } from '../actions/notebooks'
+import { createNotebook } from '../actions/notebookActions'
 import { connect } from 'react-redux'
  
 class NotebookInput extends React.Component {
@@ -59,8 +59,9 @@ class NotebookInput extends React.Component {
               </Modal.Header>
               <Modal.Body>     
                      <form className="form-group" onSubmit={this.handleOnSubmit}>
-                         <label>name:</label>
-                         <input type="text" className="form-control" name='name' onChange={this.handleOnChange} value={this.state.name} placeholder="notebook name"/><br />
+                         <label htmlFor="email">name: </label>
+                         <input type="text" className="form-control" name='name' onChange={this.handleOnChange} value={this.state.name} placeholder="notebook name"/>
+                         <br />
                          <Button disabled={!isEnabled} onClick={this.props.onHide} bsStyle="primary" type="submit">Save</Button>
                      </form>
               </Modal.Body>

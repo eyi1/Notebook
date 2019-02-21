@@ -2,8 +2,6 @@ import React from 'react'
 import Notebook from './Notebook'
 //import Table from 'react-bootstrap/Table'
 import {Container, Row, Col }from 'react-bootstrap'
-//import { connect } from 'react-redux'
-//import {deleteNotebook} from '../actions/notebooks'
 
 class Notebooks extends React.Component {     
     render(){
