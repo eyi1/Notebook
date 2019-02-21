@@ -2,10 +2,8 @@ import React from 'react'
 import NotebookInput from '../components/NotebookInput'
 import NoteBooks from '../components/Notebooks'
 import { connect } from 'react-redux'
-import {getNotebooks, deleteNotebook} from '../actions/notebooks'
-import { Button } from 'react-bootstrap';
-
-//import Popup from "reactjs-popup";
+import {getNotebooks, deleteNotebook} from '../actions/notebookActions'
+import { Button } from 'react-bootstrap'
 
 class NoteBooksContainer extends React.Component {  
     constructor(){
@@ -25,11 +23,6 @@ class NoteBooksContainer extends React.Component {
     }
     
     _renderSubComponent(){
-        // switch(this.state.render){
-        //     case 'notebookInput': return <NotebookInput />
-        //     default:
-        //     return ''
-        //     }
         if (this.state.render === 'notebookInput'){
             return <NotebookInput modal={this.state.show} />
         }
@@ -43,15 +36,11 @@ class NoteBooksContainer extends React.Component {
         let close = () => this.setState({ show: false});
         return(
             <div>
-                {/* <NotebookSideBar /> */}
-                <div>
-                    {/* <button onClick={this.handleClick.bind(this, 'notebookInput')}> + new notebook</button> */}
-                      
-                    <Button
+                <div>                 
+                   <Button
                         bsStyle="primary"
                          bsSize="large"                      
                          onClick={() => this.setState({ show: true})}
-                       // onClick={this.handleClick.bind(this, 'notebookInput')}
                      >
                      + new notebook
                     </Button>
@@ -59,12 +48,13 @@ class NoteBooksContainer extends React.Component {
                     <NotebookInput
                          modal={this.state.show}
                          onHide={close}
-                    />      
-                               
+                    />                                 
                 </div>
+                
                 <div>
                     {/* {this._renderSubComponent()} */}
                 </div>
+                
                 <div>
                     <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
                 </div>
