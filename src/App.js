@@ -17,8 +17,10 @@ class App extends Component {
           <div className="navbar">
           <Navigation />
           <Router>
+            <React.Fragment>
              <Route exact path="/signup" component={Signup} />
              <Route exact path="/login" component={Login} />
+            </React.Fragment>
           </Router>
           </div>
         </header>
