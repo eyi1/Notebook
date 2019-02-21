@@ -37,12 +37,12 @@ class Signup extends React.Component{
         return(
             <div>
                 <Form className="signup-form" onSubmit="handleOnSubmit">
-                    <Form.Group as={Col} controlId="formGridName">
+                    <Form.Group as={Col} md="4" controlId="formGridName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control name="name" onChange={this.handleOnChange} type="text" placeholder="Enter name" value={this.state.name} />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Group as={Col} md="4" controlId="formGridEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control name="email" onChange={this.handleOnChange} type="email" placeholder="Enter email" value={this.state.email} />
                         <Form.Text className="text-muted">
@@ -50,7 +50,7 @@ class Signup extends React.Component{
                         </Form.Text>
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Group as={Col} md="4" controlId="formGridPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control name="password" onChange={this.handleOnChange }type="password" placeholder="Password" value={this.state.password} />
                     </Form.Group>
