@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .navbar {
   align-items: center;
@@ -10,6 +10,22 @@
 #basic-nav-dropdown {
   float: right;
 }
+
+.signup-form {
+  text-align: left;
+  border: .5px solid #dbdbdb;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 400px;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.signup-form button {
+  margin-left: 100px;
+}
+
+
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
