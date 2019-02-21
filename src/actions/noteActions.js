@@ -3,8 +3,9 @@ const notesLink = `/api/v1/notes`
 
 //action creators
 const setNotes = notes => {
+    console.log(notes)
     return{
-        type: 'REQUEST_NOTES',
+        type: types.REQUEST_NOTES,
         notes
     }
 }
@@ -36,6 +37,10 @@ const setNotes = notes => {
 export const getNotes = () => {
     return (dispatch) => {
         return fetch(notesLink)
-            .then(response => console.log(response.json()))
+            .then(response => response.json())
+            .then(notes => {
+                dispatch(setNotes(notes))
+            })
+            .catch(error => console.log(error))
     }
 }
