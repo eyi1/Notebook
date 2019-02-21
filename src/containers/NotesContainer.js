@@ -1,9 +1,12 @@
 import React from 'react';
+import NoteInput from '../components/NoteInput'
 
 class NotesContainer extends React.Component{
     render(){
         return(
-            <div></div>
+            <div>
+                <NoteInput />
+            </div>
         )
     }
 }
