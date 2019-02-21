@@ -36,7 +36,10 @@ class NoteBooksContainer extends React.Component {
         let close = () => this.setState({ show: false});
         return(
             <div>
-                <div class="text-center">    
+                <div class="notebook-page-title">
+                        My notebook list 
+                </div>
+                <div class="text-right">    
                   <div class="container-fluid">             
                    <Button className="addNotebook-btn"
                         bsStyle="primary"
