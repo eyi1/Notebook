@@ -43,7 +43,16 @@
 }
 .login-form button {
   margin-left: 150px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
+
+/* .container-fluid {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
+} */
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
