@@ -1,7 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import { Form, Button, Col } from 'react-bootstrap'
-import {signup} from '../actions/authActions'
+//import {signup} from '../actions/authActions'
 //import { withRouter } from 'react-router-dom';
 //import Form from 'react-bootstrap/Form'
 
@@ -62,5 +62,5 @@ class Signup extends React.Component{
         )
     }
 }
-
-export default connect(null, {signup})(Signup)
+export default Signup
+//export default connect(null, {signup})(Signup)
