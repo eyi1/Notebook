@@ -1,9 +1,5 @@
-/* .App {
-  text-align: center;
-} */
-
-.NotebooksTable {
-  text-align: center;
+.App {
+  align-content: center;
 }
 
 .navbar {
