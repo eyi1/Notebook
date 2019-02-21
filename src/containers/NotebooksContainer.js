@@ -39,7 +39,7 @@ class NoteBooksContainer extends React.Component {
                 <div class="notebook-page-title">
                         My notebook list 
                 </div>
-                <div class="text-right">    
+                <div class="text-center">    
                   <div class="container-fluid">             
                    <Button className="addNotebook-btn"
                         bsStyle="primary"
