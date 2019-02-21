@@ -17,7 +17,7 @@ export default class Navigation extends React.Component {
                         <NavDropdown title="more" id="basic-nav-dropdown" right>
                             <NavDropdown.Item href="#action/3.1">my account</NavDropdown.Item>
                              <NavDropdown.Item href="/notebooks">all notebooks</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">all notes</NavDropdown.Item>
+                            <NavDropdown.Item href="/notes">all notes</NavDropdown.Item>
                             <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">sign out</NavDropdown.Item>
                         </NavDropdown>
