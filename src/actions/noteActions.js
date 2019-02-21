@@ -2,12 +2,12 @@ import * as types from './actionTypes'
 const notesLink = `/api/v1/notes`
 
 //action creators
-// const collectNotes = notes => {
-//     return{
-//         type: 'REQUEST_NOTES',
-//         notes
-//     }
-// }
+const setNotes = notes => {
+    return{
+        type: 'REQUEST_NOTES',
+        notes
+    }
+}
 
 // const addNote = note => {
 //     return{
@@ -33,9 +33,9 @@ const notesLink = `/api/v1/notes`
 
 // Async Actions
 
-// export const getNotes = () => {
-//     return (dispatch) => {
-//         return fetch(notebooksLink)
-//             .then(response => console.log(response.json()))
-//     }
-// }
+export const getNotes = () => {
+    return (dispatch) => {
+        return fetch(notesLink)
+            .then(response => console.log(response.json()))
+    }
+}
