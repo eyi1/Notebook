@@ -16,22 +16,15 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="navbar">
           <Navigation />
+          </div>
+        </header>
           <Router>
             <React.Fragment>
              <Route exact path="/signup" component={Signup} />
              <Route exact path="/login" component={Login} />
+             <Route exact path="/notebooks" component={NotebooksContainer} />
             </React.Fragment>
           </Router>
-          </div>
-        </header>
-
-        <div className="sidebar">
-          Sidebar
-        </div>
-
-        <div className="main">
-          <NotebooksContainer />
-        </div> 
          {/* <a
             className="App-link"
             href="https://reactjs.org"
