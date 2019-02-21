@@ -1,17 +1,17 @@
 import React from 'react'
 import { Dropdown} from 'react-bootstrap';
-import {Container, Row, Col }from 'react-bootstrap'
+import {Container, Row, Col, Button }from 'react-bootstrap'
 
 
 const Notebook = (props) =>
         <div>
             <Container>
                 <Row>
-                    <Col sm>{props.notebook.id}</Col>
-                    <Col sm>{props.notebook.name}</Col>
-                    <Col sm>2 of 2</Col>
-                    <Col sm>2 of 2</Col>
-                    <Col sm>
+                    <Col sm="2">{props.notebook.id}</Col>
+                    <Col sm="4"><Button href="/notes" variant="link">{props.notebook.name}</Button></Col>
+                    <Col sm="2">2 of 2</Col>
+                    <Col sm="2">2 of 2</Col>
+                    <Col sm="2">
                         <Dropdown>
                             <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
                             </Dropdown.Toggle>
