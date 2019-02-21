@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation'
-// import Login from './container/Login';
-// import Signup from './container/SignUp';
-// import UserProfile from './container/users/UserProfile';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Signup from './containers/Signup';
+// import Login from './containers/Login';
+// import UserProfile from './containers/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
 //import logo from './logo.svg';
 
@@ -14,7 +15,10 @@ class App extends Component {
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="navbar">
-            <Navigation />
+          <Navigation />
+          <Router>
+             <Route exact path="/signup" component={Signup} />
+          </Router>
           </div>
         </header>
 
