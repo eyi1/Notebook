@@ -9,14 +9,14 @@ class Notebooks extends React.Component {
         //this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
         
         return(
-            <div className="NotebooksTable">
+            <div className="table">
                 <Container>
                     <Row>
-                        <Col sm><strong>ID</strong></Col>
-                        <Col sm><strong>Name</strong></Col>
-                        <Col sm><strong>Created By</strong></Col>
-                        <Col sm><strong>Posted</strong></Col>
-                        <Col sm><strong>Actions</strong></Col>
+                        <Col md><strong>ID</strong></Col>
+                        <Col md><strong>Name</strong></Col>
+                        <Col md><strong>Created By</strong></Col>
+                        <Col md><strong>Posted</strong></Col>
+                        <Col md><strong>Actions</strong></Col>
                     </Row>
                 </Container>
                 {renderNotebooks}
