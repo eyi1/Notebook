@@ -1,3 +1,4 @@
+import * as types from './actionTypes'
 const notesLink = `/api/v1/notes`
 
 //action creators
