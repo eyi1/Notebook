@@ -7,6 +7,7 @@ import Login from './containers/Login';
 // import UserProfile from './containers/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
 import NotesContainer from './containers/NotesContainer'
+import { Jumbotron, Container } from 'react-bootstrap';
 //import logo from './logo.svg';
 
 class App extends Component {
@@ -35,7 +36,15 @@ class App extends Component {
           >
             Learn React
           </a> */}
-
+        <Jumbotron fluid>
+          <Container>
+            <h1>Fluid jumbotron</h1>
+            <p>
+            This is a modified jumbotron that occupies the entire horizontal space of
+            its parent.
+            </p>
+          </Container>
+        </Jumbotron>;
       </div>
     );
   }
