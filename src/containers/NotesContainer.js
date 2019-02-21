@@ -18,5 +18,9 @@ class NotesContainer extends React.Component{
     }
 }
 
+// const mapStateToProps = state => {
+
+// }
+
 
 export default connect(null, {getNotes})(NotesContainer)
