@@ -6,6 +6,7 @@ import Signup from './containers/Signup';
 import Login from './containers/Login';
 // import UserProfile from './containers/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
+import NotesContainer from './containers/NotesContainer'
 //import logo from './logo.svg';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
              <Route exact path="/signup" component={Signup} />
              <Route exact path="/login" component={Login} />
              <Route exact path="/notebooks" component={NotebooksContainer} />
+             <Route exact path="/notes" component={NotesContainer} />
             </React.Fragment>
           </Router>
          {/* <a
