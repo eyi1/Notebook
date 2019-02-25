@@ -1,8 +1,10 @@
 import * as types from './actionTypes'
-const notesLink = `/api/v1/notes`
+const notesLink = `/api/v1/notebooks`
+const generalNotes = `/api/v1/notes`
 
 //action creators
 const setNotes = notes => {
+    debugger;
     console.log(notes)
     return{
         type: types.REQUEST_NOTES,
@@ -34,9 +36,11 @@ const setNotes = notes => {
 
 // Async Actions
 
-export const getNotes = () => {
+export const getNotes = (notebookId) => {
+    debugger;
+    console.log(typeof notebookId)
     return (dispatch) => {
-        return fetch(notesLink)
+        fetch(`${notesLink}/${notebookId}/notes`)
             .then(response => response.json())
             .then(notes => {
                 dispatch(setNotes(notes))
@@ -44,3 +48,15 @@ export const getNotes = () => {
             .catch(error => console.log(error))
     }
 }
+
+// export const getNotes = () => {
+//     debugger;
+//     return (dispatch) => {
+//         fetch(generalNotes)
+//             .then(response => response.json())
+//             .then(notes => {
+//                 dispatch(setNotes(notes))
+//             })
+//             .catch(error => console.log(error))
+//     }
+// }
