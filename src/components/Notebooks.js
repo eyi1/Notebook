@@ -11,7 +11,7 @@ class Notebooks extends React.Component {
         return(
             <div className="table">
                 <Container>
-                    <Row>
+                    <Row className="tableLabels">
                         <Col md="2"><strong>ID</strong></Col>
                         <Col md="4"><strong>Name</strong></Col>
                         <Col md="2"><strong>Created By</strong></Col>
