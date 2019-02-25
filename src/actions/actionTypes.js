@@ -11,7 +11,7 @@ export const ADD_NOTEBOOK = "ADD_NOTEBOOK"
 export const UPDATE_NOTEBOOK = "UPDATE_NOTEBOOK"
 export const DELETE_NOTEBOOK = "DELETE_NOTEBOOK"
 
-export const REQUEST_NOTES= "RREQUEST_NOTES"
+export const REQUEST_NOTES= "REQUEST_NOTES"
 export const ADD_NOTE = "ADD_NOTE"
 export const UPDATE_NOTE = "UPDATE_NOTE"
 export const DELETE_NOTE = "DELETE_NOTE"
