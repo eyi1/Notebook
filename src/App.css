@@ -49,9 +49,17 @@
 }
 
 .row {
-  border: 1px solid #dbdbdb;
-  border-radius: 10px;
-  padding-top: 7px;
+  /* border: 1px solid #dbdbdb; */
+  border-bottom: 1px dotted #dbdbdb;
+  border-radius: 0px;
+  padding-top: 10px;
+}
+
+.tableLabels {
+  border-bottom: 3px solid #dbdbdb;
+  border-top: 3px solid #dbdbdb;
+  padding-bottom: 10px;
+  margin-top: 30px;
 }
 
 .notebook-page-title {
