@@ -12,17 +12,30 @@ class NotesContainer extends React.Component{
     //     }
     // }
 
+    constructor(props){
+        super(props)
+        this.state={
+            title: '',
+            content: '',
+            notebookId: props.location.state.notebookId 
+            // this.props.location.state.notebookId
+        }
+    }
+
     componentDidMount(){
         //const { id } = this.props.match.params
         
-        console.log(this.props.location.state)
-        console.log(this.props.location)
-        const id = JSON.stringify(this.props.location.state.notebookId)
-        console.log(id)
-        console.log(typeof id)
+        //console.log(this.props.location.state)
+        //console.log(this.props.location)
+        //const id = JSON.stringify(this.props.location.state.notebookId)
+       // console.log(id)
+       // console.log(typeof id)
+       
+       console.log(typeof this.state.notebookId)
+       const id = JSON.stringify(this.state.notebookId)
+       console.log(typeof id)
         
-        // const id = JSON.stringify(this.state.notebookId)
-        this.props.getNotes(id)
+       this.props.getNotes(id)
     }
 
     render(){
