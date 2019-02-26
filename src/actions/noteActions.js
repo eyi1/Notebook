@@ -4,7 +4,7 @@ const generalNotes = `/api/v1/notes`
 
 //action creators
 const setNotes = notes => {
-    debugger;
+    //debugger;
     console.log(notes)
     return{
         type: types.REQUEST_NOTES,
@@ -37,7 +37,7 @@ const setNotes = notes => {
 // Async Actions
 
 export const getNotes = (notebookId) => {
-    debugger;
+    //debugger;
     console.log(typeof notebookId)
     return (dispatch) => {
         fetch(`${notesLink}/${notebookId}/notes`)
