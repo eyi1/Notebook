@@ -52,7 +52,7 @@ class NotesContainer extends React.Component{
                     <Row>
                         {/* <Button onClick={this.handleOnClick}>+ new note</Button> */}
                         <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection}/></Col>              
-                        <Col md="8" className="notesInput"><NoteInput notesCollection={this.props.notesCollection}/></Col>  
+                        <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId}/></Col>  
                     </Row>
                 </Container>
             </div>
