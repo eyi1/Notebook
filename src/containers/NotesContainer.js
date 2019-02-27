@@ -3,6 +3,7 @@ import NoteInput from '../components/NoteInput'
 import Notes from '../components/Notes'
 import { getNotes } from '../actions/noteActions'
 import { connect } from 'react-redux';
+import { Button, Container, Row, Col } from 'react-bootstrap'
 
 class NotesContainer extends React.Component{
     // constructor(props){
@@ -38,12 +39,22 @@ class NotesContainer extends React.Component{
        this.props.getNotes(id)
     }
 
+    handleOnClick = event => {
+        
+        return <NoteInput notesCollection={this.props.notesCollection}/>
+    }
+
     render(){
         // const renderNotes = this.props.notesCollection.map(note => note.title)
         return(
             <div>
-                {/* <NoteInput /> */}
-                <Notes notesCollection={this.props.notesCollection}/>
+                <Container lg="12" className="notesPage">
+                    <Row>
+                        {/* <Button onClick={this.handleOnClick}>+ new note</Button> */}
+                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection}/></Col>              
+                        <Col md="8" className="notesInput"><NoteInput notesCollection={this.props.notesCollection}/></Col>  
+                    </Row>
+                </Container>
             </div>
         )
     }
