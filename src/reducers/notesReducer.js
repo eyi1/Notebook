@@ -4,10 +4,14 @@ export default (state=[], action) => {
     switch(action.type){
         
         case types.REQUEST_NOTES:
-        console.log('action.notes:', action.notes)
-        return action.notes
+            console.log('action.notes:', action.notes)
+            return action.notes
+        
+        case types.ADD_NOTE:
+            console.log('action.add-note', action.note)
+            return [...state, action.note]
 
         default:
-        return state
+            return state
     }
 }
