@@ -1,15 +1,15 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import { createNote } from '../actions/noteActions'
 
 class NoteInput extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            id:'',
             title: '',
             content:'',
-            //notebookId:
+            notebookId: this.props.notebookId
         }
     }
 
@@ -22,6 +22,12 @@ class NoteInput extends React.Component{
 
     handOnSubmit = event => {
         event.preventDefault();
+        this.props.createNote(this.state)
+        this.setState({
+            title: '',
+            content: ''
+        })
+
     }
 
     render(){
@@ -50,4 +56,4 @@ class NoteInput extends React.Component{
     }
 }
 
-export default NoteInput
+export default connect(null, { createNote })(NoteInput)
