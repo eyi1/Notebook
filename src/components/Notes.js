@@ -1,7 +1,5 @@
 import React from 'react'
 import Note from './Note'
-//import Table from 'react-bootstrap/Table'
-//import {Container, Row, Col }from 'react-bootstrap'
 
 class Notes extends React.Component {     
     render(){
