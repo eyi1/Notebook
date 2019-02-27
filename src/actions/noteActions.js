@@ -76,6 +76,23 @@ export const createNote = (note) => {
    }
  }
 
+ export const deleteNote = notebookId => {
+     console.log(notebookId)
+     return(dispatch) => {
+         fetch(`${notebooksLink}/${notebookId}/notes`, {
+            method: 'DELETE',
+            headers : {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+          dispatch(destroyNotebook(notebookId))
+        })
+        .catch(error => console.log(error))
+    }
+}
+
+
 // export const getNotes = () => {
 //     debugger;
 //     return (dispatch) => {
