@@ -76,17 +76,20 @@ export const createNote = (note) => {
    }
  }
 
- export const deleteNote = notebookId => {
-     console.log(notebookId)
+ export const deleteNote = note => {
+     console.log(note)
+     console.log(noteId)
+     //const noteId = note.id
+     //const notebookId = note.notebookId
      return(dispatch) => {
-         fetch(`${notebooksLink}/${notebookId}/notes`, {
+         fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
             method: 'DELETE',
             headers : {
                 'Content-Type': 'application/json'
             }
         })
         .then(response => {
-          dispatch(destroyNotebook(notebookId))
+          dispatch(destroyNote(noteId))
         })
         .catch(error => console.log(error))
     }
