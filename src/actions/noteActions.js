@@ -29,12 +29,12 @@ const addNote = note => {
 //     } 
 // }
 
-// const removeNote = note => {
-//     return{
-//         type: 'DELETE_NOTE',
-//         note
-//     }
-// }
+const removeNote = noteId => {
+    return{
+        type: 'DELETE_NOTE',
+        noteId
+    }
+}
 
 // Async Actions
 
@@ -89,7 +89,7 @@ export const createNote = (note) => {
             }
         })
         .then(response => {
-          dispatch(destroyNote(noteId))
+          dispatch(removeNote(noteId))
         })
         .catch(error => console.log(error))
     }
