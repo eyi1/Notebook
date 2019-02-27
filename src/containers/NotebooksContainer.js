@@ -22,11 +22,11 @@ class NoteBooksContainer extends React.Component {
         });        
     }
     
-    _renderSubComponent(){
-        if (this.state.render === 'notebookInput'){
-            return <NotebookInput modal={this.state.show} />
-        }
-    }
+    // _renderSubComponent(){
+    //     if (this.state.render === 'notebookInput'){
+    //         return <NotebookInput modal={this.state.show} />
+    //     }
+    // }
 
     componentDidMount(){
         this.props.getNotebooks()
@@ -36,11 +36,11 @@ class NoteBooksContainer extends React.Component {
         let close = () => this.setState({ show: false});
         return(
             <div>
-                <div class="notebook-page-title">
+                <div className="notebook-page-title">
                         My notebook list 
                 </div>
-                <div class="text-center">    
-                  <div class="container-fluid">             
+                <div className="text-center">    
+                  <div className="container-fluid">             
                    <Button className="addNotebook-btn"
                         bsStyle="primary"
                          bsSize="large"                      
