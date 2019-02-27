@@ -11,6 +11,10 @@ export default (state=[], action) => {
             console.log('action.add-note', action.note)
             return [...state, action.note]
 
+        case types.DELETE_NOTE:
+            const notes = state.notes.filter(note => note.id !== action.noteId)
+            return notes
+
         default:
             return state
     }
