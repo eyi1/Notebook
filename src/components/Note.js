@@ -18,7 +18,7 @@ class Note extends React.Component {
                         <Card.Text>
                             {this.props.note.content}
                         </Card.Text>
-                        <Card.Link href="#" onClick={() => this.props.updateNote(this.props.note)}>Edit</Card.Link>
+                        <Card.Link href="#" onClick={this.props.editNote}>Edit</Card.Link> 
                         {/* <Card.Link href="#" onClick={this.handler}>Edit</Card.Link> */}
                         <Card.Link href="#" onClick={() => this.props.deleteNote(this.props.note)}>Delete</Card.Link>
                     </Card.Body>
