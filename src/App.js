@@ -8,8 +8,8 @@ import Login from './containers/Login';
 // import UserProfile from './containers/users/UserProfile';
 import NotebooksContainer from './containers/NotebooksContainer'
 import NotesContainer from './containers/NotesContainer'
+import Home from './containers/Home'
 // import Notes from './components/Notes'
-import { Jumbotron, Container } from 'react-bootstrap';
 //import logo from './logo.svg';
 
 class App extends Component {
@@ -28,6 +28,7 @@ class App extends Component {
              <Route exact path="/login" component={Login} />
              <Route exact path="/notebooks" component={NotebooksContainer} />
              <Route exact path="/notebooks/:id/notes" component={NotesContainer} /> 
+             <Route exact path="/" component={Home} /> 
             </React.Fragment>
           </Router>
          {/* <a
@@ -37,16 +38,8 @@ class App extends Component {
             rel="noopener noreferrer"
           >
             Learn React
-          </a> */}
-        {/* <Jumbotron fluid>
-          <Container>
-            <h1>Fluid jumbotron</h1>
-            <p>
-            This is a modified jumbotron that occupies the entire horizontal space of
-            its parent.
-            </p>
-          </Container>
-        </Jumbotron>; */}
+         </a> */}
+
       </div>
     );
   }
