@@ -13,7 +13,7 @@ class Note extends React.Component {
                             {this.props.note.content}
                         </Card.Text>
                         <Card.Link href="#">Edit</Card.Link>
-                        <Card.Link href="#">Delete</Card.Link>
+                        <Card.Link href="#" onClick={() => this.props.deleteNote(this.props.note)}>Delete</Card.Link>
                     </Card.Body>
                 </Card>
             </div>
