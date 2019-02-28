@@ -51,7 +51,7 @@ class NotesContainer extends React.Component{
                 <Container lg="12" className="notesPage">
                     <Row>
                         {/* <Button onClick={this.handleOnClick}>+ new note</Button> */}
-                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote}/></Col>              
+                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} /></Col>              
                         <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId}/></Col>  
                     </Row>
                 </Container>
