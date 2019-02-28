@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import { ModalTitle } from 'react-bootstrap';
+
 const notebooksLink = `/api/v1/notebooks`
 //const notesLink = `/api/v1/notes`
 
@@ -16,13 +16,12 @@ const setNotes = notes => {
 const addNote = note => {
     console.log(note)
     return{
-        type: 'ADD_NOTE',
+        type: types.ADD_NOTE,
         note
     }
 }
 
-// //updates form
-// const updateNote = note => {
+// const editNote = note => {
 //     return{
 //         type: 'UPDATE_NOTE',
 //         note
@@ -32,7 +31,7 @@ const addNote = note => {
 const removeNote = noteId => {
     console.log(noteId)
     return{
-        type: 'DELETE_NOTE',
+        type: types.DELETE_NOTE,
         noteId
     }
 }
@@ -76,6 +75,33 @@ export const createNote = (note) => {
         .catch(error => console.log(error))
    }
  }
+
+
+ export const updateNote = note => {
+    
+    const noteId = note.id
+    const notebookId = note.notebook.id
+
+     return(dispatch) => {
+        fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
+            method: 'PATCH',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({title: title, content: content, notebookId: notebookId})
+        })
+        //.then(response => console.log(response))
+        .then(response => response.json())
+        //.then(note => console.log(note))
+        .then(note => {
+            dispatch(editNote(note))
+             //debugger;
+        })
+        .catch(error => console.log(error))
+
+     }
+ }
+
 
  export const deleteNote = note => {
 
