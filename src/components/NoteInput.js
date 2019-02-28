@@ -21,7 +21,7 @@ class NoteInput extends React.Component{
         })
     }
 
-    handOnSubmit = event => {
+    handleOnSubmit = event => {
         event.preventDefault();
         this.props.createNote(this.state)
         this.setState({
@@ -35,7 +35,7 @@ class NoteInput extends React.Component{
         const isEnabled = this.state.title.length && this.state.content.length > 0;
         return(
             <div>
-                <Form onSubmit={this.handOnSubmit}>
+                <Form onSubmit={this.handleOnSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput1">
                         {/* <Form.Label>Title</Form.Label> */}
                         <Col sm="12" >
