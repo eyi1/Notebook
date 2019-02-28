@@ -7,6 +7,7 @@ class NoteInput extends React.Component{
     constructor(props){
         super(props)
         this.state={
+            id: '',
             title: '',
             content:'',
             notebookId: this.props.notebookId
@@ -27,7 +28,7 @@ class NoteInput extends React.Component{
             title: '',
             content: ''
         })
-
+    
     }
 
     render(){
