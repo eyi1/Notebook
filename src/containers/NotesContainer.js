@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteInput from '../components/NoteInput'
 import Notes from '../components/Notes'
-import { getNotes } from '../actions/noteActions'
+import { getNotes, deleteNote } from '../actions/noteActions'
 import { connect } from 'react-redux';
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
@@ -51,7 +51,7 @@ class NotesContainer extends React.Component{
                 <Container lg="12" className="notesPage">
                     <Row>
                         {/* <Button onClick={this.handleOnClick}>+ new note</Button> */}
-                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection}/></Col>              
+                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote}/></Col>              
                         <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId}/></Col>  
                     </Row>
                 </Container>
@@ -67,4 +67,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {getNotes})(NotesContainer)
+export default connect(mapStateToProps, {getNotes, deleteNote})(NotesContainer)
