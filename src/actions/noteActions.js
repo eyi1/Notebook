@@ -24,7 +24,7 @@ const addNote = note => {
 const setNote = note => {
     debugger;
     return{
-        type: 'UPDATE_NOTE',
+        type: types.UPDATE_NOTE,
         note
     } 
 }
@@ -100,33 +100,35 @@ export const createNote = (note) => {
     }
 }
 
-//  export const updateNote = note => {
-//     debugger;
-//     const title = note.title
-//     const content = note.content
-//     const noteId = note.id
-//     const notebookId = note.notebook.id
+ export const updateNote = note => {
+    console.log(note)
+    const title = note.title
+    const content = note.content
+    //const noteId = JSON.stringify(note.id)
+    //console.log(typeof noteId)
+    const noteId = note.id
+    const notebookId = note.notebookId
 
-//      return(dispatch) => {
-//         fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
-//             method: 'PATCH',
-//             headers : {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({title: title, content: content, notebookId: notebookId})
-//         })
-//         .then(response => response.json())
-//         .then(res => console.log(res))
+     return(dispatch) => {
+         debugger;
+        fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
+            method: 'PATCH',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({title: title, content: content, notebookId: notebookId})
+        })
+        .then(response => response.json())
+        //.then(res => console.log(res))
+        // //.then(note => console.log(note))
+        .then(note => {
+            dispatch(setNote(note))
+             //debugger;
+        })
+        .catch(error => console.log(error))
 
-//         // //.then(note => console.log(note))
-//         // .then(note => {
-//         //     dispatch(setNote(note))
-//         //      //debugger;
-//         // })
-//         // .catch(error => console.log(error))
-
-//      }
-//  }
+     }
+ }
 
 
 // export const getNotes = () => {
