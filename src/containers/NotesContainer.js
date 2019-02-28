@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteInput from '../components/NoteInput'
 import Notes from '../components/Notes'
+import EditNoteForm from '../components/EditNoteForm'
 import { getNotes, deleteNote } from '../actions/noteActions'
 import { connect } from 'react-redux';
 import { Button, Container, Row, Col } from 'react-bootstrap'
