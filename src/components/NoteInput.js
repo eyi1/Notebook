@@ -10,7 +10,7 @@ class NoteInput extends React.Component{
             id: '',
             title: '',
             content:'',
-            notebookId: this.props.notebookId
+            notebookId: this.props.notebookId,
         }
     }
 
@@ -28,7 +28,6 @@ class NoteInput extends React.Component{
             title: '',
             content: ''
         })
-    
     }
 
     render(){
