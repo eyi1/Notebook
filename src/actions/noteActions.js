@@ -30,6 +30,7 @@ const addNote = note => {
 // }
 
 const removeNote = noteId => {
+    console.log(noteId)
     return{
         type: 'DELETE_NOTE',
         noteId
@@ -77,10 +78,14 @@ export const createNote = (note) => {
  }
 
  export const deleteNote = note => {
+
+     const noteId = note.id
+     const notebookId = note.notebook.id
+
      console.log(note)
      console.log(noteId)
-     //const noteId = note.id
-     //const notebookId = note.notebookId
+     console.log(notebookId)
+
      return(dispatch) => {
          fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
             method: 'DELETE',
