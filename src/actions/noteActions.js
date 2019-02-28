@@ -21,7 +21,7 @@ const addNote = note => {
     }
 }
 
-const editNote = note => {
+const setNote = note => {
     debugger;
     return{
         type: 'UPDATE_NOTE',
@@ -120,7 +120,7 @@ export const createNote = (note) => {
 
 //         // //.then(note => console.log(note))
 //         // .then(note => {
-//         //     dispatch(editNote(note))
+//         //     dispatch(setNote(note))
 //         //      //debugger;
 //         // })
 //         // .catch(error => console.log(error))
