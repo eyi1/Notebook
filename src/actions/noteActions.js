@@ -21,12 +21,12 @@ const addNote = note => {
     }
 }
 
-// const editNote = note => {
-//     return{
-//         type: 'UPDATE_NOTE',
-//         note
-//     } 
-// }
+const editNote = note => {
+    return{
+        type: 'UPDATE_NOTE',
+        note
+    } 
+}
 
 const removeNote = noteId => {
     console.log(noteId)
