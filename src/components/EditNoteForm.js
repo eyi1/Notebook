@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { createNote } from '../actions/noteActions'
+import { editNote } from '../actions/noteActions'
 
 class EditNoteForm extends React.Component{
     constructor(props){
@@ -23,7 +23,7 @@ class EditNoteForm extends React.Component{
 
     handleOnSubmit = event => {
         event.preventDefault();
-        this.props.createNote(this.state)
+        this.props.editNote(this.state)
         this.setState({
             title: '',
             content: ''
@@ -57,4 +57,4 @@ class EditNoteForm extends React.Component{
     }
 }
 
-export default connect(null, { createNote })(EditNoteForm)
+export default connect(null, { editNote })(EditNoteForm)
