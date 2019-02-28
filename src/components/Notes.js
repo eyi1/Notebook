@@ -3,7 +3,7 @@ import Note from './Note'
 
 class Notes extends React.Component {     
     render(){
-        const renderNotes = this.props.notesCollection.map(note => <Note key={note.id} note={note}/>)
+        const renderNotes = this.props.notesCollection.map(note => <Note key={note.id} note={note} deleteNote={this.props.deleteNote}/>)
         //this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
         
         return(
