@@ -3,7 +3,7 @@ import NotebookInput from '../components/NotebookInput'
 import NoteBooks from '../components/Notebooks'
 import { connect } from 'react-redux'
 import {getNotebooks, deleteNotebook} from '../actions/notebookActions'
-import { Button } from 'react-bootstrap'
+import { Button, ButtonToolbar } from 'react-bootstrap'
 
 class NoteBooksContainer extends React.Component {  
     constructor(){
@@ -11,57 +11,107 @@ class NoteBooksContainer extends React.Component {
         this.state = {
             render: '',
             show: false,
+            arr: null,
+            sort: false
         }
     }
-     
-    handleClick(component, e){
-        console.log(component);
-        this.setState({
-           // render: component,
-            show: true
-        });        
-    }
     
+    sortHandler = event => {
+        console.log('clicked')
+        const newNotebooksArr = this.props.notebooksList.map(notebook => notebook)
+        const sortedArr = newNotebooksArr.sort(function(a, b) {
+            var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          });
+
+        this.setState({
+            arr: sortedArr,
+            show: false,
+            sort: true
+        })
+    }
+
+    resetHandler = event => {
+        this.setState({
+            arr: this.props.notebooksList,
+            show: false,
+            sort: false
+        })
+    }
+
+    componentDidMount(){
+        this.props.getNotebooks()
+    }
+
+    // handleClick(component, e){
+    //     console.log(component);
+    //     this.setState({
+    //        // render: component,
+    //         show: true
+    //     });    
+    // }  
+
     // _renderSubComponent(){
     //     if (this.state.render === 'notebookInput'){
     //         return <NotebookInput modal={this.state.show} />
     //     }
     // }
 
-    componentDidMount(){
-        this.props.getNotebooks()
-    }
-
     render(){
         let close = () => this.setState({ show: false});
+        console.log(this.state.arr)
+        console.log(this.state)
         return(
             <div>
                 <div className="notebook-page-title">
                         My notebook list 
-                </div>
-                <div className="text-center">    
-                  <div className="container-fluid">             
-                   <Button className="addNotebook-btn"
-                        bsStyle="primary"
-                         bsSize="large"                      
-                         onClick={() => this.setState({ show: true})}
-                     >
-                     + new notebook
+                </div>    
+                <div className="container-fluid-one">                           
+                    <Button 
+                        className="addNotebook-btn"
+                        variant="primary"                   
+                        onClick={() => this.setState({ show: true})}
+                        >
+                        + new notebook
                     </Button>
-                  </div>          
-                  <NotebookInput
+                </div>
+                <div className="container-fluid-two">
+                    <Button
+                        className="sort-btn"
+                        variant="light"
+                        onClick={this.sortHandler}>
+                        Sort A-Z
+                    </Button>
+                    <Button
+                        className="sort-btn"
+                        variant="light"
+                        onClick={this.resetHandler}>
+                        Reset
+                    </Button>              
+                </div>
+                <div>
+                    <NotebookInput
                     modal={this.state.show}
                     onHide={close}
-                    />                                 
+                    />   
+                </div>                                          
+                <div>
+                    {this.state.sort ? 
+                    <NoteBooks notebooksList={this.state.arr} deleteNotebook={this.props.deleteNotebook}/> 
+                    : 
+                    <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
+                    }
                 </div>
-                
                 <div>
                     {/* {this._renderSubComponent()} */}
-                </div>
-                
-                <div>
-                    <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
-                </div>
+                </div>  
             </div>
         )        
     }
@@ -69,8 +119,7 @@ class NoteBooksContainer extends React.Component {
 
 const mapStateToProps = state => {
     console.log(state.notebooks)
-    return {
-        
+    return {       
         notebooksList: state.notebooks
     }
   }
