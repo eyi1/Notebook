@@ -15,7 +15,7 @@ class NotebookInput extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.state.show!==nextProps.modal){ //false vs true
+        if(this.state.show !== nextProps.modal){ //false vs true
         this.setState({show: nextProps.modal})
       }
     }
@@ -27,11 +27,12 @@ class NotebookInput extends React.Component {
         })
     }
 
-
     handleOnSubmit = event => {
         event.preventDefault();
         const notebookName = this.state.name
+        console.log('A')
         this.props.createNotebook(notebookName)
+        console.log('B')
         this.setState({
             name: ''
         })
@@ -62,7 +63,7 @@ class NotebookInput extends React.Component {
                          <label htmlFor="email">name: </label>
                          <input type="text" className="form-control" name='name' onChange={this.handleOnChange} value={this.state.name} placeholder="notebook name"/>
                          <br />
-                         <Button disabled={!isEnabled} onClick={this.props.onHide} bsStyle="primary" type="submit">Save</Button>
+                         <Button disabled={!isEnabled} onClick={this.props.onHide} variant="primary" type="submit">Save</Button>
                      </form>
               </Modal.Body>
               <Modal.Footer>

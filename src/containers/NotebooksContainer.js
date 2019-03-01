@@ -11,8 +11,8 @@ class NoteBooksContainer extends React.Component {
         this.state = {
             render: '',
             show: false,
-            arr: null,
-            sort: false
+            notebookArray: null,
+            arrSort: false
         }
     }
     
@@ -32,17 +32,17 @@ class NoteBooksContainer extends React.Component {
           });
 
         this.setState({
-            arr: sortedArr,
             show: false,
-            sort: true
+            notebookArray: sortedArr,
+            arrSort: true
         })
     }
 
     resetHandler = event => {
         this.setState({
-            arr: this.props.notebooksList,
             show: false,
-            sort: false
+            notebookArray: this.props.notebooksList,
+            arrSort: false
         })
     }
 
@@ -103,8 +103,8 @@ class NoteBooksContainer extends React.Component {
                     />   
                 </div>                                          
                 <div>
-                    {this.state.sort ? 
-                    <NoteBooks notebooksList={this.state.arr} deleteNotebook={this.props.deleteNotebook}/> 
+                    {this.state.arrSort ? 
+                    <NoteBooks notebooksList={this.state.notebookArray} deleteNotebook={this.props.deleteNotebook}/> 
                     : 
                     <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
                     }
