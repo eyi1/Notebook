@@ -15,18 +15,31 @@ class NotesContainer extends React.Component{
             content: '',
             notebookId: props.location.state.notebookId,
             isEditing: false
-            // this.props.location.state.notebookId
+            //editingNoteId: ''
         }
         this.toggleEdit = this.toggleEdit.bind(this);
+        //this.toggleEditId = this.toggleEditId.bind(this);
     }
 
     toggleEdit() {
         console.log(this.state.isEditing, '1')
-        this.setState({isEditing: !this.state.isEditing})
+        this.setState({
+           isEditing: !this.state.isEditing
+        })
         console.log(this.state.isEditing,'2')
       }
 
+    // toggleEditId(id) {
+    //           console.log(id)
+    //     this.setState({
+    //         editingNoteId: id
+    //     })
+    // }
+
+
     componentDidMount(){
+       const id = JSON.stringify(this.state.notebookId)        
+       this.props.getNotes(id)
         //const { id } = this.props.match.params       
         //console.log(this.props.location.state)
         //console.log(this.props.location)
@@ -34,58 +47,26 @@ class NotesContainer extends React.Component{
         // console.log(id)
         // console.log(typeof id)     
         //console.log(typeof this.state.notebookId)
-       const id = JSON.stringify(this.state.notebookId)        
-       this.props.getNotes(id)
     }
 
-    //  render(){
-    //     return(
-    //         this.props.notesCollection.map(note=> {
-    //         if (this.state.isEditing){
-    //             console.log('edit note form yes')
-    //             return (
-                    
-    //                 <div> 
-    //                     <Container lg="12" className="notesPage">
-    //                       <Row>   
-    //                         <Col md="4" className="notesInput"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} isEditing={this.state.isEditing} editNote={this.toggleEdit}/></Col>
-    //                         <Col lg="8" className="notesWrapper"><EditNoteForm note={note} notebookId={this.state.notebookId} /></Col>
-    //                      </Row>
-    //                     </Container>
-    //                 </div>
-    //             )
-            
-    //         }else{
-    //             console.log('false')
-    //             return (
-
-    //             <div>
-    //                 <Container lg="12" className="notesPage">
-    //                     <Row>
-    //                         <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} editNote={this.toggleEdit}/></Col>
-    //                         <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId}/></Col>  
-    //                     </Row>
-    //                 </Container>
-    //             </div>
-    //             )}
-    //         }
-    //     ) 
-    // )}
- 
     render(){
+            const note = this.props.notesCollection.map(note=> note)
         return(
             <div>
                 <Container lg="12" className="notesPage">
                     <Row>
-                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} editNote={this.toggleEdit}/></Col>
-                        <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId} /></Col>  
-                    </Row>
+                        <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} toggleEdit={this.toggleEdit}/></Col>
+                        {this.state.isEditing ?           
+                         <Col md="8" className="notesInput"><EditNoteForm note={note} notebookId={this.state.notebookId} /></Col> 
+                         :              
+                         <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId} /></Col>
+                        }
+                        </Row>
                 </Container>
             </div>
         )
-        
     }
-}
+}      
 
 const mapStateToProps = state => {
     return{
