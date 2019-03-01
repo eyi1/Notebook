@@ -11,6 +11,7 @@ class EditNoteForm extends React.Component{
             title: this.props.note.title,
             content: this.props.note.content,
             notebookId: this.props.notebookId
+            
         }
     }
 
@@ -23,6 +24,7 @@ class EditNoteForm extends React.Component{
 
     handleOnSubmit = event => {
         event.preventDefault();
+        debugger;
         this.props.updateNote(this.state)
         this.setState({
             title: '',
@@ -32,7 +34,7 @@ class EditNoteForm extends React.Component{
     }
 
     render(){
-        const isEnabled = this.state.title.length && this.state.content.length > 0;
+        // const isEnabled = this.state.title.length && this.state.content.length > 0;
         return(
             <div>
                 <Form onSubmit={this.handleOnSubmit}>
@@ -49,7 +51,8 @@ class EditNoteForm extends React.Component{
                         </Col>
                     </Form.Group>
                         <Col sm="12">
-                             <Button disabled={!isEnabled} bsStyle="primary" type="submit">Save</Button>
+                             {/* <Button disabled={!isEnabled} bsStyle="primary" type="submit">Save</Button> */}
+                             <Button bsStyle="primary" type="submit">Save</Button>
                         </Col>
                     </Form>
             </div>
