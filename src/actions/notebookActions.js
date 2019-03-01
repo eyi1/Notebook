@@ -41,8 +41,9 @@ export const getNotebooks = () => {
 
 export const createNotebook = notebookName => {
     //console.log(notebook = notebook.notebookName)
-    console.log({notebookName})
-    console.log(typeof(notebookName))
+    //console.log({notebookName})
+    //console.log(typeof(notebookName))
+    console.log('C')
     return(dispatch) => {
         
         fetch(notebooksLink, {
@@ -54,12 +55,14 @@ export const createNotebook = notebookName => {
         })
         //.then(response => console.log(response))
         .then(response => response.json())
-        .then(notebook => {             
+        .then(notebook => {          
+            console.log('D')   
             dispatch(addNotebook(notebook))
              //debugger;
         })
          .catch(error => console.log(error))
     }
+    console.log('E')
 }
 
 export const deleteNotebook = (notebookId) => {
