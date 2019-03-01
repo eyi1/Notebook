@@ -22,6 +22,7 @@ class NotesContainer extends React.Component{
     }
 
     toggleEdit() {
+        console.log(this)
         console.log(this.state.isEditing, '1')
         this.setState({
            isEditing: !this.state.isEditing
