@@ -22,6 +22,7 @@
   /* box-sizing: border-box; */
   padding: 15px;
 }
+
 .signup-form button {
   margin-left: 15px;
 }
@@ -48,20 +49,20 @@
   border-bottom: 1px solid #dbdbdb; */
 }
 
-
 .table .tableLabels {
   border-bottom: 3px solid #dbdbdb;
   border-top: 3px solid #dbdbdb;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .notebook-page-title {
-  float: left;
+  padding-top: 20px;
+  /* float: left; */
   justify-content: left;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(10px + 2vmin);
   margin-left: 20px;
   font-family: Arial, Helvetica, sans-serif
 }
@@ -77,6 +78,15 @@
 
 .row .notesWrapper {
   border-right: 1px dotted #dbdbdb;
+}
+
+.container-fluid-one {
+  text-align: center;
+}
+
+.container-fluid-two {
+  text-align: right;
+  margin-right: 100px;
 }
 
 /* .App-logo {
