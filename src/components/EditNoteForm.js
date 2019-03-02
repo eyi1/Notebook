@@ -47,7 +47,7 @@ class EditNoteForm extends React.Component{
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         {/* <Form.Label>Write Something Here</Form.Label> */}
                         <Col sm="12">
-                            <Form.Control as="textarea" name='content' onChange={this.handleOnChange} value={this.state.content} rows="10" placeholder="Start writing"/>
+                            <Form.Control as="textarea" name='content' onChange={this.handleOnChange} value={this.state.content} rows="15" placeholder="Start writing"/>
                         </Col>
                     </Form.Group>
                         <Col sm="12">
