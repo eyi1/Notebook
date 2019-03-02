@@ -9,7 +9,7 @@ class NoteBooksContainer extends React.Component {
     constructor(){
         super();
         this.state = {
-            render: '',
+            // render: '',
             show: false,
             notebookArray: null,
             arrSort: false
