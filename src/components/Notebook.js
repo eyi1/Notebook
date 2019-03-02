@@ -4,17 +4,23 @@ import {Container, Row, Col, Button }from 'react-bootstrap'
 //import NotesContainer from '../containers/NotesContainer';
 import { Link } from 'react-router-dom'
 
-
-const Notebook = (props) =>
-        <div>
+// const Notebook = (props) =>
+class Notebook extends React.Component{  
+    render(){
+        const date = new Date(this.props.notebook.created_at)
+        const srr = this.props.notebook.name.split('')[0].toUpperCase()
+        const str = this.props.notebook.name.split('').slice(1).join('')
+        const upcaseName = srr.concat(str)
+        return(
+          <div>
             <Container>
                 <Row>
-                    <Col sm="2">{props.notebook.id}</Col>
+                    <Col sm="2">{this.props.notebook.id}</Col>
                     {/* <Col sm="4"><Button onClick={()=> <NotesContainer notebook={props.notebook}/>}>{props.notebook.name}</Button></Col> */}
-                    <Col><Link to={{pathname: '/notebooks/:id/notes', state:{ notebookId: props.notebook.id}}}>{props.notebook.name}</Link></Col>   
-                    {/* <Col><Link to={{pathname: '/notes', state:{ notebookId: props.notebook.id}}}>{props.notebook.name}</Link></Col> */}
-                    <Col sm="2">2 of 2</Col>
-                    <Col sm="2">2 of 2</Col>
+                    <Col><Link to={{pathname: `/notebooks/${this.props.notebook.id}/notes`, state:{ notebookId: this.props.notebook.id, name: this.props.notebook.name}}}>{upcaseName}</Link></Col>   
+                    {/* <Col><Link to={{pathname: '/notes', state:{ notebookId: props.notebook.id}}}>{props.notebook.name}</Link></Col> */}                   
+                    <Col sm="2">{new Intl.DateTimeFormat('en-US').format(date)}</Col>
+                    <Col sm="2">-</Col>
                     <Col sm="2">
                         <Dropdown>
                             <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
@@ -22,13 +28,17 @@ const Notebook = (props) =>
                             
                             <Dropdown.Menu>            
                                 <Dropdown.Item as="button">Edit</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={() => props.deleteNotebook(props.notebook.id)}>Delete</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Col>
                 </Row>
             </Container>
-        </div>
+          </div>
+        )
+    }
+}
+
 
 //class Notebook extends React.Component{
 //     constructor(props){
