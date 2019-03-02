@@ -13,9 +13,10 @@ class NotesContainer extends React.Component{
         this.state={
             title: '',
             content: '',
+            name: props.location.state.name,
             notebookId: props.location.state.notebookId,
-            isEditing: false
-            //editingNoteId: ''
+            isEditing: false,
+             //editingNoteId: ''
         }
         this.toggleEdit = this.toggleEdit.bind(this);
         //this.toggleEditId = this.toggleEditId.bind(this);
@@ -25,10 +26,12 @@ class NotesContainer extends React.Component{
         console.log(this)
         console.log(this.state.isEditing, '1')
         this.setState({
-           isEditing: !this.state.isEditing
+           isEditing: !this.state.isEditing,
+        //    editingNoteId: id
         })
         console.log(this.state.isEditing,'2')
       }
+
 
     // toggleEditId(id) {
     //           console.log(id)
@@ -41,19 +44,24 @@ class NotesContainer extends React.Component{
     componentDidMount(){
        const id = JSON.stringify(this.state.notebookId)        
        this.props.getNotes(id)
-        //const { id } = this.props.match.params       
-        //console.log(this.props.location.state)
-        //console.log(this.props.location)
-        //const id = JSON.stringify(this.props.location.state.notebookId)
-        // console.log(id)
-        // console.log(typeof id)     
-        //console.log(typeof this.state.notebookId)
+    //     //const { id } = this.props.match.params       
+    //     //console.log(this.props.location.state)
+    //     //console.log(this.props.location)
+    //     //const id = JSON.stringify(this.props.location.state.notebookId)
+    //     // console.log(id)
+    //     // console.log(typeof id)     
+    //     //console.log(typeof this.state.notebookId)
     }
 
     render(){
-            const note = this.props.notesCollection.map(note=> note)
+            const note = this.props.notesCollection.map(noteObj => noteObj)
         return(
             <div>
+                <header>
+                    <div id='notebookHeader'>
+                        {this.state.name}
+                    </div>
+                </header>
                 <Container lg="12" className="notesPage">
                     <Row>
                         <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} toggleEdit={this.toggleEdit}/></Col>
