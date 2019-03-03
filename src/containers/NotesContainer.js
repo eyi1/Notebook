@@ -16,30 +16,21 @@ class NotesContainer extends React.Component{
             name: props.location.state.name,
             notebookId: props.location.state.notebookId,
             isEditing: false,
-             //editingNoteId: ''
+            editingNoteId: ''
         }
         this.toggleEdit = this.toggleEdit.bind(this);
-        //this.toggleEditId = this.toggleEditId.bind(this);
     }
 
-    toggleEdit() {
-        console.log(this)
-        console.log(this.state.isEditing, '1')
+    toggleEdit(note) {
+
         this.setState({
            isEditing: !this.state.isEditing,
-        //    editingNoteId: id
+           editingNoteId: note.id,
+           title: note.title,
+           content: note.title
         })
-        console.log(this.state.isEditing,'2')
+
       }
-
-
-    // toggleEditId(id) {
-    //           console.log(id)
-    //     this.setState({
-    //         editingNoteId: id
-    //     })
-    // }
-
 
     componentDidMount(){
        const id = JSON.stringify(this.state.notebookId)        
