@@ -6,7 +6,7 @@ import { updateNote } from '../actions/noteActions'
 class EditNoteForm extends React.Component{
     constructor(props){
         super(props)
-        debugger;
+        //debugger
         this.state={
             id: props.note[0].id,
             title: props.note[0].title,
@@ -24,7 +24,7 @@ class EditNoteForm extends React.Component{
 
     handleOnSubmit = event => {
         event.preventDefault();
-        debugger;
+        //debugger
         this.props.updateNote(this.state)
         this.setState({
             title: '',
