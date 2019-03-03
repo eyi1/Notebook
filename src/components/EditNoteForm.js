@@ -6,12 +6,12 @@ import { updateNote } from '../actions/noteActions'
 class EditNoteForm extends React.Component{
     constructor(props){
         super(props)
+        debugger;
         this.state={
-            id: this.props.note.id,
-            title: this.props.note.title,
-            content: this.props.note.content,
-            notebookId: this.props.notebookId
-            
+            id: props.note[0].id,
+            title: props.note[0].title,
+            content: props.note[0].content,
+            notebookId: props.notebookId
         }
     }
 
