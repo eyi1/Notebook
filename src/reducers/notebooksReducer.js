@@ -11,6 +11,9 @@ export default (state=[], action) => {
             console.log(action)
             //return state.concat(action.notebook)
             return [...state, action.notebook]
+
+        case types.UPDATE_NOTEBOOK:
+            return state.map(notebook => notebook.id === action.notebook.id ? action.notebook : notebook)
         
         case types.DELETE_NOTEBOOK:
             const notebooks = state.filter(notebook => notebook.id !== action.notebookId)
@@ -20,7 +23,6 @@ export default (state=[], action) => {
             //     ...state.slice(0, idx),
             //     ...state.slice(idx + 1)
             //   ]
-      
         default:
         return state       
     }
