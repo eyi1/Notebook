@@ -27,7 +27,7 @@ class App extends Component {
              <Route exact path="/signup" component={Signup} />
              <Route exact path="/login" component={Login} />
              <Route exact path="/notebooks" component={NotebooksContainer} />
-             <Route exact path="/notebooks/:id/notes" component={NotesContainer} /> 
+             <Route exact path="/notebooks/:id/notes" component={NotesContainer} />
              <Route exact path="/" component={Home} /> 
             </React.Fragment>
           </Router>

@@ -22,7 +22,7 @@ const addNote = note => {
 }
 
 const setNote = note => {
-    debugger;
+    //debugger;
     return{
         type: types.UPDATE_NOTE,
         note
@@ -101,6 +101,7 @@ export const createNote = (note) => {
 }
 
  export const updateNote = note => {
+    // debugger
     console.log(note)
     const title = note.title
     const content = note.content
@@ -110,7 +111,8 @@ export const createNote = (note) => {
     const notebookId = note.notebookId
 
      return(dispatch) => {
-         //debugger;
+        // debugger;
+        console.log(dispatch)
         fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
             method: 'PATCH',
             headers : {
@@ -129,7 +131,6 @@ export const createNote = (note) => {
 
      }
  }
-
 
 // export const getNotes = () => {
 //     debugger;
