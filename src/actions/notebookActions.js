@@ -24,6 +24,8 @@ const destroyNotebook = notebookId => {
     }
 }
 
+// const setNotebook
+
 //reducer
 
 export const getNotebooks = () => {
@@ -63,6 +65,20 @@ export const createNotebook = notebookName => {
          .catch(error => console.log(error))
     }
     console.log('E')
+}
+
+export const updateNotebook = (notebook) => {
+    const notebookId = notebook.id
+   console.log(notebook)
+    return(dispatch) => {
+        fetch(`${notebooksLink}/${notebookId}`, {
+            method: 'PATCH',
+            headers : {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => console.log(response))
+    }
 }
 
 export const deleteNotebook = (notebookId) => {
