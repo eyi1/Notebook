@@ -6,7 +6,7 @@ import {Container, Row, Col }from 'react-bootstrap'
 class Notebooks extends React.Component {    
 
     render(){
-        const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} deleteNotebook={this.props.deleteNotebook}/>)
+        const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} deleteNotebook={this.props.deleteNotebook} toggleEditButton={this.props.toggleEditButton}/>)
         //this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
 
         return(
