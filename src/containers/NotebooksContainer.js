@@ -4,18 +4,35 @@ import NoteBooks from '../components/Notebooks'
 import { connect } from 'react-redux'
 import {getNotebooks, deleteNotebook} from '../actions/notebookActions'
 import { Button, ButtonToolbar } from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
+import EditNotebookInput from '../components/EditNotebookInput';
+//import EditNotebookInput from '../components/EditNotebookInput';
 
 class NoteBooksContainer extends React.Component {  
     constructor(){
         super();
         this.state = {
             // render: '',
+            id: null,
+            name: null,
             show: false,
-            notebookArray: null,
-            arrSort: false
+            isEdit: false,
+            notebookArray: null, //stores a new array of notebooks
+            isSort: false, 
         }
+        this.toggleEditButton = this.toggleEditButton.bind(this)
     }
-    
+
+    toggleEditButton(notebook){
+         console.log(notebook)
+         //debugger
+        this.setState({
+            id: notebook.id,
+            name: notebook.name,
+            isEdit: true,
+        })
+    }
+
     sortHandler = event => {
         console.log('clicked')
         const newNotebooksArr = this.props.notebooksList.map(notebook => notebook)
@@ -34,7 +51,7 @@ class NoteBooksContainer extends React.Component {
         this.setState({
             show: false,
             notebookArray: sortedArr,
-            arrSort: true
+            isSort: true
         })
     }
 
@@ -42,7 +59,7 @@ class NoteBooksContainer extends React.Component {
         this.setState({
             show: false,
             notebookArray: this.props.notebooksList,
-            arrSort: false
+            isSort: false
         })
     }
 
@@ -66,7 +83,8 @@ class NoteBooksContainer extends React.Component {
 
     render(){
         let close = () => this.setState({ show: false});
-        console.log(this.state.arr)
+        //const notebook = this.props.notebooksList.map(notebookObj => notebookObj)
+        //console.log(this.state.arr)
         console.log(this.state)
         return(
             <div>
@@ -97,16 +115,26 @@ class NoteBooksContainer extends React.Component {
                     </Button>              
                 </div>
                 <div>
+                    {/* notebook={this.state} */}
+                    {this.state.isEdit ? 
+                    <EditNotebookInput
+                    notebook={this.state}
+                    modal={this.state.isEdit}
+                    toggleEditButton={this.toggleEditButton}
+                    onHide={close} />
+                    :
                     <NotebookInput
                     modal={this.state.show}
                     onHide={close}
                     />   
+                }
+                
                 </div>                                          
                 <div>
-                    {this.state.arrSort ? 
-                    <NoteBooks notebooksList={this.state.notebookArray} deleteNotebook={this.props.deleteNotebook}/> 
+                    {this.state.isSort ? 
+                    <NoteBooks notebooksList={this.state.notebookArray} deleteNotebook={this.props.deleteNotebook} toggleEditButton={this.toggleEditButton}/> 
                     : 
-                    <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook}/> 
+                    <NoteBooks notebooksList={this.props.notebooksList} deleteNotebook={this.props.deleteNotebook} toggleEditButton={this.toggleEditButton}/> 
                     }
                 </div>
                 <div>
