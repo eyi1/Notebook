@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 class NotebookInput extends React.Component {
     constructor(props){
         super(props)
+        //debugger
         this.state={
             id: '',
             name: '',
@@ -16,7 +17,10 @@ class NotebookInput extends React.Component {
 
     componentWillReceiveProps(nextProps){
         if(this.state.show !== nextProps.modal){ //false vs true
+          console.log(this.state.show)
+          console.log(nextProps.modal)
         this.setState({show: nextProps.modal})
+        debugger
       }
     }
 
