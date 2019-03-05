@@ -6,12 +6,13 @@ import { updateNote } from '../actions/noteActions'
 class EditNoteForm extends React.Component{
     constructor(props){
         super(props)
-        //debugger
+       // debugger
         this.state={
-            id: props.note[0].id,
-            title: props.note[0].title,
-            content: props.note[0].content,
-            notebookId: props.notebookId
+            id: props.note.editingNoteId,
+            title: props.note.title,
+            content: props.note.content,
+            notebookId: props.note.notebookId,
+            isEditing: props.note.isEditing
         }
     }
 
@@ -24,17 +25,13 @@ class EditNoteForm extends React.Component{
 
     handleOnSubmit = event => {
         event.preventDefault();
-        //debugger
         this.props.updateNote(this.state)
-        this.setState({
-            title: '',
-            content: ''
-        })
-    
+        this.props.toggleEdit(this.state.id)
     }
 
+
     render(){
-        // const isEnabled = this.state.title.length && this.state.content.length > 0;
+         const isEnabled = this.state.title.length && this.state.content.length > 0;
         return(
             <div>
                 <Form onSubmit={this.handleOnSubmit}>
@@ -51,8 +48,8 @@ class EditNoteForm extends React.Component{
                         </Col>
                     </Form.Group>
                         <Col sm="12">
-                             {/* <Button disabled={!isEnabled} bsStyle="primary" type="submit">Save</Button> */}
-                             <Button bsStyle="primary" type="submit">Save</Button>
+                             <Button disabled={!isEnabled} bsStyle="primary" type="submit">Save</Button>
+                             {/* <Button bsStyle="primary" type="submit">Save</Button> */}
                         </Col>
                     </Form>
             </div>
