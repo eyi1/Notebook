@@ -13,7 +13,7 @@ class NotesContainer extends React.Component{
         this.state={
             title: '',
             content: '',
-            name: props.location.state.name,
+            //name: props.location.state.name,
             notebookId: props.location.state.notebookId,
             isEditing: false,
             editingNoteId: ''
@@ -22,14 +22,13 @@ class NotesContainer extends React.Component{
     }
 
     toggleEdit(note) {
-
+        console.log(note)
         this.setState({
            isEditing: !this.state.isEditing,
            editingNoteId: note.id,
            title: note.title,
-           content: note.title
+           content: note.content
         })
-
       }
 
     componentDidMount(){
@@ -45,7 +44,7 @@ class NotesContainer extends React.Component{
     }
 
     render(){
-            const note = this.props.notesCollection.map(noteObj => noteObj)
+            //const note = this.props.notesCollection.map(noteObj => noteObj)
         return(
             <div>
                 <header>
@@ -57,7 +56,7 @@ class NotesContainer extends React.Component{
                     <Row>
                         <Col lg="4" className="notesWrapper"><Notes notesCollection={this.props.notesCollection} deleteNote={this.props.deleteNote} toggleEdit={this.toggleEdit}/></Col>
                         {this.state.isEditing ?           
-                         <Col md="8" className="notesInput"><EditNoteForm note={note} notebookId={this.state.notebookId} /></Col> 
+                         <Col md="8" className="notesInput"><EditNoteForm note={this.state} toggleEdit={this.toggleEdit}/></Col> 
                          :              
                          <Col md="8" className="notesInput"><NoteInput notebookId={this.state.notebookId} /></Col>
                         }
