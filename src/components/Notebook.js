@@ -16,8 +16,8 @@ class Notebook extends React.Component{
             <Container>
                 <Row>
                     <Col sm="2">{this.props.notebook.id}</Col>
-                    {/* <Col sm="4"><Button onClick={()=> <NotesContainer notebook={props.notebook}/>}>{props.notebook.name}</Button></Col> */}
-                    <Col><Link to={{pathname: `/notebooks/${this.props.notebook.id}/notes`, state:{ notebookId: this.props.notebook.id, name: this.props.notebook.name}}}>{upcaseName}</Link></Col>   
+                    {/* \\<Col sm="4"><Button onClick={()=> <NotesContainer notebookId={this.props.notebook.id}/>}>{upcaseName}</Button></Col> */}
+                    <Col><Link to={{pathname: `/notebooks/${this.props.notebook.id}/notes`, state:{ notebookId: this.props.notebook.id}}}>{upcaseName}</Link></Col>   
                     {/* <Col><Link to={{pathname: '/notes', state:{ notebookId: props.notebook.id}}}>{props.notebook.name}</Link></Col> */}                   
                     <Col sm="2">{new Intl.DateTimeFormat('en-US').format(date)}</Col>
                     <Col sm="2">-</Col>
@@ -27,7 +27,7 @@ class Notebook extends React.Component{
                             </Dropdown.Toggle>
                             
                             <Dropdown.Menu>            
-                                <Dropdown.Item as="button">Edit</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => this.props.toggleEditButton(this.props.notebook)}>Edit</Dropdown.Item>
                                 <Dropdown.Item as="button" onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
