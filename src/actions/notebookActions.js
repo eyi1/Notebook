@@ -18,19 +18,25 @@ const addNotebook = notebook => {
 }
 
 const destroyNotebook = notebookId => {
+    //debugger
     return{
         type: types.DELETE_NOTEBOOK,
         notebookId
     }
 }
 
-// const setNotebook
+const setNotebook = notebook => {
+    //debugger
+    return{
+        type: types.UPDATE_NOTEBOOK,
+        notebook
+    }
+}
 
 //reducer
 
 export const getNotebooks = () => {
-    return(dispatch) => {
-        
+    return(dispatch) => {      
         fetch(notebooksLink)
         .then(response => response.json())
         .then(notebooks => {
@@ -42,12 +48,8 @@ export const getNotebooks = () => {
 }
 
 export const createNotebook = notebookName => {
-    //console.log(notebook = notebook.notebookName)
-    //console.log({notebookName})
-    //console.log(typeof(notebookName))
-    console.log('C')
-    return(dispatch) => {
-        
+    //console.log('C')
+    return(dispatch) => {       
         fetch(notebooksLink, {
             method: 'POST',
             headers : {
@@ -55,29 +57,34 @@ export const createNotebook = notebookName => {
             },
             body:JSON.stringify({name: notebookName})
         })
-        //.then(response => console.log(response))
         .then(response => response.json())
         .then(notebook => {          
-            console.log('D')   
+            //console.log('D')   
             dispatch(addNotebook(notebook))
-             //debugger;
         })
          .catch(error => console.log(error))
     }
-    console.log('E')
+    //console.log('E')
 }
 
 export const updateNotebook = (notebook) => {
-    const notebookId = notebook.id
-   console.log(notebook)
+    //debugger
+    const notebookId = notebook.notebookId
+    const name = notebook.notebookName
+
     return(dispatch) => {
         fetch(`${notebooksLink}/${notebookId}`, {
             method: 'PATCH',
             headers : {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({name: name})
         })
-        .then(response => console.log(response))
+        .then(response => response.json())
+        .then(notebook => {
+            dispatch(setNotebook(notebook))
+        })
+        .catch(error => console.log(error))
     }
 }
 
