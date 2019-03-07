@@ -33,6 +33,7 @@ class EditNotebookInput extends React.Component {
         event.preventDefault();
         //debugger;
         // const notebookName = this.state.name
+        this.props.toggleEditButton(this.state)
         console.log('edit notebook input')
         // this.props.updateNotebook(this.state)
         // this.setState({
@@ -44,7 +45,7 @@ class EditNotebookInput extends React.Component {
 
     render(){
 
-        let close = () => this.setState({ isEdit: false});
+        let x = () => this.props.toggleEditButton;
         const isEnabled = this.state.name.length > 0;
 
         return(
@@ -52,7 +53,7 @@ class EditNotebookInput extends React.Component {
             <div className="modal-container">
             <Modal
               show={this.state.isEdit}
-              onHide={close}
+              onHide={x}
               container={this}
               aria-labelledby="contained-modal-title"
             >
@@ -68,7 +69,7 @@ class EditNotebookInput extends React.Component {
                      </form>
               </Modal.Body>
               <Modal.Footer>
-                <Button onClick={close}>Close</Button>
+                <Button onClick={x}>Close</Button>
               </Modal.Footer>
             </Modal>
           </div>    
