@@ -1,7 +1,6 @@
 import * as types from './actionTypes'
 
 const notebooksLink = `/api/v1/notebooks`
-//const notesLink = `/api/v1/notes`
 
 //action creators
 const setNotes = notes => {
@@ -71,7 +70,6 @@ export const createNote = (note) => {
         //.then(note => console.log(note))
         .then(note => {
             dispatch(addNote(note))
-             //debugger;
         })
         .catch(error => console.log(error))
    }
@@ -81,10 +79,6 @@ export const createNote = (note) => {
 
      const noteId = note.id
      const notebookId = note.notebook.id
-
-     console.log(note)
-     console.log(noteId)
-     console.log(notebookId)
 
      return(dispatch) => {
          fetch(`${notebooksLink}/${notebookId}/notes/${noteId}`, {
