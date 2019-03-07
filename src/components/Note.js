@@ -11,7 +11,7 @@ class Note extends React.Component {
     render(){
         return(
             <div>
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '22rem' }}>
                     <Card.Body>
                         <Card.Title>{this.props.note.title}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">id: {this.props.note.id}</Card.Subtitle>
