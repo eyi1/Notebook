@@ -77,7 +77,8 @@
 }
 
 .row .notesWrapper {
-  border-right: 1px dotted #dbdbdb;
+  /* border-right: 1px dotted #dbdbdb; */
+  float: left
 }
 
 .container-fluid-one {
@@ -100,6 +101,10 @@
   color: #cfa4478a;
   padding-bottom: 20px;
 }
+
+/* .form {
+  justify-content: center;
+} */
 
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
