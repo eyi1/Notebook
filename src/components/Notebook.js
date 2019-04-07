@@ -20,15 +20,15 @@ class Notebook extends React.Component{
                     <Col><Link to={{pathname: `/notebooks/${this.props.notebook.id}/notes`, state:{ notebookId: this.props.notebook.id}}}>{upcaseName}</Link></Col>   
                     {/* <Col><Link to={{pathname: '/notes', state:{ notebookId: props.notebook.id}}}>{props.notebook.name}</Link></Col> */}                   
                     <Col sm="2">{new Intl.DateTimeFormat('en-US').format(date)}</Col>
-                    <Col sm="2">-</Col>
+                    <Col sm="2">{this.props.notebook.user.name}</Col>
                     <Col sm="2">
                         <Dropdown>
                             <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
                             </Dropdown.Toggle>
                             
                             <Dropdown.Menu>            
-                                <Dropdown.Item as="button" onClick={() => this.props.toggleEditButton(this.props.notebook)}>Edit</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>Delete</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => this.props.toggleEditButton(this.props.notebook)}>Rename notebook</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>Delete notebook</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Col>

@@ -9,6 +9,7 @@ class Notebooks extends React.Component {
         const renderNotebooks = this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} deleteNotebook={this.props.deleteNotebook} toggleEditButton={this.props.toggleEditButton}/>)
         //this.props.notebooksList.map(notebook => <Notebook key={notebook.id} notebook={notebook} />)
 
+
         return(
             <div className="table">
                 <Container>

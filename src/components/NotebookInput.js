@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { Button } from 'react-bootstrap';
-import { createNotebook } from '../actions/notebookActions'
+import { createNotebook, updateNotebook } from '../actions/notebookActions'
 import { connect } from 'react-redux'
  
 class NotebookInput extends React.Component {
@@ -11,16 +11,19 @@ class NotebookInput extends React.Component {
         this.state={
             id: '',
             name: '',
-            show: props.modal
+            show: props.modal,
+            isEdit: props.isEdit,
+            //notebookId: props.notebookId,
+            //notebookName: props.notebook.name
         }
     }
 
     componentWillReceiveProps(nextProps){
         if(this.state.show !== nextProps.modal){ //false vs true
-          console.log(this.state.show)
-          console.log(nextProps.modal)
-        this.setState({show: nextProps.modal})
-        debugger
+          // console.log(this.state.show)
+          // console.log(nextProps.modal)
+        this.setState({show: nextProps.modal, isEdit: nextProps.isEdit})
+        //debugger
       }
     }
 
@@ -34,9 +37,17 @@ class NotebookInput extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault();
         const notebookName = this.state.name
-        console.log('A')
-        this.props.createNotebook(notebookName)
-        console.log('B')
+        const notebookId = JSON.stringify(this.props.notebook.id)
+        // console.log('A')
+        // console.log(this.state.isEdit)
+        if (this.state.isEdit){
+          this.props.updateNotebook({notebookName, notebookId})
+        // console.log(this.state.isEdit)
+        // console.log(this.props.notebook.id)
+        // console.log('B')
+        }else{
+          this.props.createNotebook(notebookName)
+        }
         this.setState({
             name: ''
         })
@@ -80,4 +91,4 @@ class NotebookInput extends React.Component {
     }
 }
 
-export default connect(null, {createNotebook})(NotebookInput)
+export default connect(null, {createNotebook, updateNotebook})(NotebookInput)
