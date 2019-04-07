@@ -5,14 +5,12 @@ import { connect } from 'react-redux'
 import {getNotebooks, deleteNotebook} from '../actions/notebookActions'
 import { Button, ButtonToolbar } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
-import EditNotebookInput from '../components/EditNotebookInput';
 //import EditNotebookInput from '../components/EditNotebookInput';
 
 class NoteBooksContainer extends React.Component {  
     constructor(){
         super();
         this.state = {
-            // render: '',
             id: null,
             name: null,
             show: false,
@@ -24,17 +22,16 @@ class NoteBooksContainer extends React.Component {
     }
 
     toggleEditButton(notebook){
-         console.log(notebook)
-         //debugger
+        console.log(notebook)
         this.setState({
             id: notebook.id,
             name: notebook.name,
             isEdit: true,
+            show: true
         })
     }
 
-    sortHandler = event => {
-        console.log('clicked')
+    sortHandler = e => {
         const newNotebooksArr = this.props.notebooksList.map(notebook => notebook)
         const sortedArr = newNotebooksArr.sort(function(a, b) {
             var nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -67,6 +64,15 @@ class NoteBooksContainer extends React.Component {
         this.props.getNotebooks()
     }
 
+    componentDidUpdate(prevProps){
+       // debugger;
+        if (prevProps.notebooksList !== this.props.notebooksList ){
+            this.setState({
+                isSort: false
+            })
+        }
+    }
+
     // handleClick(component, e){
     //     console.log(component);
     //     this.setState({
@@ -82,10 +88,10 @@ class NoteBooksContainer extends React.Component {
     // }
 
     render(){
-        let close = () => this.setState({ show: false});
+        let close = () => this.setState({show: false})
         //const notebook = this.props.notebooksList.map(notebookObj => notebookObj)
         //console.log(this.state.arr)
-        console.log(this.state)
+        console.log(this.props)
         return(
             <div>
                 <div className="notebook-page-title">
@@ -95,7 +101,7 @@ class NoteBooksContainer extends React.Component {
                     <Button 
                         className="addNotebook-btn"
                         variant="primary"                   
-                        onClick={() => this.setState({ show: true})}
+                        onClick={() => this.setState({ show: true, isEdit: false})}
                         >
                         + new notebook
                     </Button>
@@ -115,19 +121,28 @@ class NoteBooksContainer extends React.Component {
                     </Button>              
                 </div>
                 <div>
-                    {/* notebook={this.state} */}
-                    {this.state.isEdit ? 
-                    <EditNotebookInput
-                    notebook={this.state}
-                    modal={this.state.isEdit}
-                    toggleEditButton={this.toggleEditButton}
-                    onHide={close} />
-                    :
-                    <NotebookInput
-                    modal={this.state.show}
-                    onHide={close}
-                    />   
-                }
+                    
+                    {/* {this.state.isEdit ? 
+                        <EditNotebookInput
+                        notebook={this.state}
+                        modal={this.state.isEdit}
+                        toggleEditButton={this.toggleEditButton}
+                        onHide={close}
+                        />
+                    : */}
+                        {/* <NotebookInput
+                        modal={this.state.show}
+                        onHide={close}
+                        />    */}
+                    {/* } */}
+
+                        <NotebookInput
+                        isEdit={this.state.isEdit}
+                        modal={this.state.show}
+                        onHide={close}
+                        notebook={this.state}
+                        toggleEditButton={this.toggleEditButton}
+                        />   
                 
                 </div>                                          
                 <div>
