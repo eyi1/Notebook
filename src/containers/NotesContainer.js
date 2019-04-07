@@ -44,7 +44,6 @@ class NotesContainer extends React.Component{
     }
 
     render(){
-            //const note = this.props.notesCollection.map(noteObj => noteObj)
         return(
             <div>
                 <header>
