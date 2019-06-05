@@ -33,8 +33,6 @@ const setNotebook = notebook => {
     }
 }
 
-//reducer
-
 export const getNotebooks = () => {
     return(dispatch) => {      
         fetch(notebooksLink)

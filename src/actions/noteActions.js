@@ -37,7 +37,6 @@ const removeNote = noteId => {
 }
 
 // Async Actions
-
 export const getNotes = (notebookId) => {
     //debugger;
     console.log(typeof notebookId)
