@@ -1,7 +1,7 @@
 import React from 'react'
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Form, Button, Col } from 'react-bootstrap'
-//import {signup} from '../actions/authActions'
+import {signup} from '../actions/authActions'
 //import { withRouter } from 'react-router-dom';
 //import Form from 'react-bootstrap/Form'
 
@@ -22,21 +22,25 @@ class Signup extends React.Component{
     })
     }
 
-    handleOnSubmit = event => {
+    submitForm = event => {
         event.preventDefault();
-        if (this.props.signup(this.state)) {
-          //this.props.history.push('/user_profile')
-          window.alert("Thank you for signing up.")
-        } else {
-          window.alert("We're having issues creating your account.")
-        }
+        //debugger
+        //this.props.signup(this.state)
+
+            if (this.props.signup(this.state)) {
+              //this.props.history.push('/user_profile')
+              window.alert("Thank you for signing up.")
+            } else {
+              window.alert("We're having issues creating your account.")
+            }
+          
       }
 
 
     render(){
         return(
             <div>
-                <Form className="signup-form" onSubmit="handleOnSubmit">
+                <Form className="signup-form" onSubmit={this.submitForm}>
                     <Form.Group as={Col} md="4" controlId="formGridName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control name="name" onChange={this.handleOnChange} type="text" placeholder="Enter name" value={this.state.name} />
@@ -62,5 +66,5 @@ class Signup extends React.Component{
         )
     }
 }
-export default Signup
-//export default connect(null, {signup})(Signup)
+//export default Signup
+export default connect(null, {signup})(Signup)
