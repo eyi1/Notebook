@@ -27,7 +27,6 @@ Steps:
 Future inclusion of:
 
 User authentication
-Edit functionality
 
 #License
 
