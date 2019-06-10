@@ -3,7 +3,11 @@
 A simple note-taking app to help users organize their notes. 
 Built using React, Redux, and Rails API.
 
+<<<<<<< HEAD
 ##Table of Contents
+=======
+## Table of Contents
+>>>>>>> feature/note-crud
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -40,14 +44,24 @@ Steps:
 ```
 
 ## Code Status
+<<<<<<< HEAD
 https://travis-ci.org/eyi1/notebook_app.svg?branch=master
 
 ##Future Revisions
+=======
+[![Build Status](https://travis-ci.org/eyi1/Notebook.svg?branch=master)](https://travis-ci.org/eyi1/Notebook)
+
+## Future Revisions
+>>>>>>> feature/note-crud
 
 Future inclusion of:
 
 User authentication
 
+<<<<<<< HEAD
 ##License
+=======
+## License
+>>>>>>> feature/note-crud
 
 The gem is available as open source under the terms of the MIT License.
