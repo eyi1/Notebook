@@ -52,7 +52,7 @@ Steps:
 
 Future inclusion of:
 
-User authentication
+User authentication (not fully implemented)
 
 ## License
 
