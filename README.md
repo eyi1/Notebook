@@ -1,7 +1,12 @@
 # Noteböök App
  
-A simple note-taking app to help users organize their notes. 
+A simple note-taking app to help users create notebooks and organize their information. 
 Built using React, Redux, and Rails API.
+
+App Hierarchy:
+
+At the very top level, a user can create a notebook. A user is also able to view, rename, and delete notebooks.
+At the level below that, a user is able to create a note. A user is also able to view, edit and delete notes. 
 
 ## Table of Contents
 * [General info](#general-info)
