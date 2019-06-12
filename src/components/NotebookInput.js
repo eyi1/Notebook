@@ -75,7 +75,7 @@ class NotebookInput extends React.Component {
               </Modal.Header>
               <Modal.Body>     
                      <form className="form-group" onSubmit={this.handleOnSubmit}>
-                         <label htmlFor="email">name: </label>
+                         <label htmlFor="name">name: </label>
                          <input type="text" className="form-control" name='name' onChange={this.handleOnChange} value={this.state.name} placeholder="notebook name"/>
                          <br />
                          <Button disabled={!isEnabled} onClick={this.props.onHide} variant="primary" type="submit">Save</Button>
