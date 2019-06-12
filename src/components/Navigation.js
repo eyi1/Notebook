@@ -1,7 +1,18 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { logout } from '../actions/authActions'
 
-export default class Navigation extends React.Component {
+//export default class Navigation extends React.Component {
+class Navigation extends React.Component{
+    
+    handleLogout = (e) => {
+        e.preventDefault();
+        //debugger
+        this.props.logout();
+        //this.props.history.push('/')
+      }
+    
     render() {
         return (
             <Navbar bg="light" expand="lg">
@@ -15,11 +26,11 @@ export default class Navigation extends React.Component {
                         
                         
                         <NavDropdown title="more" id="basic-nav-dropdown" right>
-                            <NavDropdown.Item href="#action/3.1">my account</NavDropdown.Item>
-                             <NavDropdown.Item href="/notebooks">all notebooks</NavDropdown.Item>
+                            {/* <NavDropdown.Item href="#action/3.1">my account</NavDropdown.Item> */}
+                             <NavDropdown.Item href="/notebooks">my notebooks</NavDropdown.Item>
                             {/* <NavDropdown.Item href="/notes">all notes</NavDropdown.Item> */}
                             <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">sign out</NavDropdown.Item>
+                                <NavDropdown.Item href="/" onClick={this.handleLogout}>sign out</NavDropdown.Item>
                         </NavDropdown>
 
                     </Nav>
@@ -32,3 +43,5 @@ export default class Navigation extends React.Component {
         );
     }
 }
+
+export default connect(null, {logout})(Navigation)
