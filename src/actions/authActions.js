@@ -42,58 +42,73 @@ const authRequest = () => {
         .then(response => response.json())
         //.then(res => console.log(res))
         .then(jresp => {
-          dispatch(authenticate({
-            name: newUser.name,
-            email: newUser.email,
-            password: newUser.password})
-          );
+          //debugger;
+          dispatch({ //dispatch action
+            type: "SET_CURRENT_USER",
+            currentUser: jresp.user
+          
+          })
+          localStorage.setItem("token", jresp.jwt)
         })
         .catch((errors) => {
-          dispatch(authFailure(errors))
+            console.log(errors)
         })
     };
   }
 
-  export const authenticate = (credentials) => {
+  export const login = (user) => {
+    console.log(user)
+    debugger
     return dispatch => {
-      dispatch(authRequest())
-      return fetch(`${authLink}/user_token`, {
+      return fetch(`${authLink}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({auth: credentials})
+        body: JSON.stringify({user: user})
       })
-        .then(res => res.json())
-        .then((response) => {
-            const token = response.jwt;
-            localStorage.setItem('token', token);
-            return getUser(credentials)
+        .then(response => response.json())
+       // .then(res => console.log(res))
+        .then(jresp => {
+          //debugger;
+          dispatch({ //dispatch action
+            type: "SET_CURRENT_USER",
+            currentUser: jresp.user
+          
+          })
+          localStorage.setItem("token", jresp.jwt)
         })
-        .then((user) => {
-          console.log(user)
-            dispatch(authSuccess(user, localStorage.token))
+         .catch((errors) => {
+            console.log(errors)
         })
-        .catch((errors) => {
-            dispatch(authFailure(errors))
-            localStorage.clear()
-        })
-    }
+     }
   }
 
-  export const getUser = (credentials) => {
-    const request = new Request(`${authLink}/find_user`, {
-      method: "POST",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.token}`,
-      }),
-      body: JSON.stringify({user: credentials})
-    })
-    return fetch(request)
-      .then(response => response.json())
-      .then(userJson => {return userJson})
-      .catch(error => {
-        return error;
+  //export const login = (credentials) => {
+   //console.log(credentials)
+    // const request = new Request(`${authLink}/login`, {
+    //   method: "POST",
+    //   headers: new Headers({
+    //     "Content-Type": "application/json",
+    //     "Authorization": `Bearer ${localStorage.token}`,
+    //   }),
+    //   body: JSON.stringify({user: credentials})
+    // })
+    // return fetch(request)
+    //   .then(response => response.json())
+    //   .then(userJson => {console.log(userJson)})
+    //   //.then(userJson => {return userJson})
+    //   .catch(error => {
+    //     //return error;
+    //      console.log(error)
+    //   });
+  //}
+
+  export const logout = () => {
+    return dispatch => {
+      localStorage.clear();
+      return dispatch({
+        type: "DELETE_USER"
       });
+    }
   }
