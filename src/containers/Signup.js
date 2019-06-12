@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Form, Button, Col } from 'react-bootstrap'
 import {signup} from '../actions/authActions'
-//import { withRouter } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 //import Form from 'react-bootstrap/Form'
 
 class Signup extends React.Component{
@@ -23,10 +23,9 @@ class Signup extends React.Component{
     }
 
     submitForm = event => {
-        event.preventDefault();
-        //debugger
+        event.preventDefault()
               if (this.props.signup(this.state)){
-                //this.props.history.push('/notebooks')
+                this.props.history.push('/notebooks')
                 window.alert("Thank you for signing up.")
             } else {
                 window.alert("We're having issues creating your account.")
