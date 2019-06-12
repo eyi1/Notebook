@@ -10,7 +10,7 @@ class Signup extends React.Component{
         super()
         this.state={
             name: '',
-            email: '',
+            email_string: '',
             password: '',
         }
     }
@@ -25,13 +25,11 @@ class Signup extends React.Component{
     submitForm = event => {
         event.preventDefault();
         //debugger
-        //this.props.signup(this.state)
-
-            if (this.props.signup(this.state)) {
-              //this.props.history.push('/user_profile')
-              window.alert("Thank you for signing up.")
+              if (this.props.signup(this.state)){
+                //this.props.history.push('/notebooks')
+                window.alert("Thank you for signing up.")
             } else {
-              window.alert("We're having issues creating your account.")
+                window.alert("We're having issues creating your account.")
             }
           
       }
@@ -48,7 +46,7 @@ class Signup extends React.Component{
 
                     <Form.Group as={Col} md="4" controlId="formGridEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control name="email" onChange={this.handleOnChange} type="email" placeholder="Enter email" value={this.state.email} />
+                        <Form.Control name="email_string" onChange={this.handleOnChange} type="email" placeholder="Enter email" value={this.state.email_string} />
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                         </Form.Text>
