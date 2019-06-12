@@ -31,7 +31,7 @@ class Navigation extends React.Component{
                             {/* <NavDropdown.Item href="/notes">all notes</NavDropdown.Item> */}
                             <NavDropdown.Divider />
                                 <NavDropdown.Item href="/" onClick={this.handleLogout}>sign out</NavDropdown.Item>
-                                <NavDropdown.Item href="#">sign out</NavDropdown.Item>
+                                {/* <NavDropdown.Item href="#">sign out</NavDropdown.Item> */}
                         </NavDropdown>
 
                     </Nav>
