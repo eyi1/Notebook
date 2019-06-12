@@ -37,6 +37,7 @@ Steps:
 -rails db:seed (to seed the database)
 -cd notebook and run npm install
 -rake start (should open browser to http://localhost:3000)
+-sign up to start using the notebook features
 ```
 
 ## Code Status
