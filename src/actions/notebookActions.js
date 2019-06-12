@@ -34,8 +34,14 @@ const setNotebook = notebook => {
 }
 
 export const getNotebooks = () => {
-    return(dispatch) => {      
-        fetch(notebooksLink)
+    return(dispatch) => {    
+        const authToken = `Bearer ${localStorage.getItem("token")}`       
+        fetch(notebooksLink,{
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization': authToken
+            } 
+        })
         .then(response => response.json())
         .then(notebooks => {
           dispatch(setNotebooks(notebooks))
@@ -47,11 +53,13 @@ export const getNotebooks = () => {
 
 export const createNotebook = notebookName => {
     //console.log('C')
-    return(dispatch) => {       
+    return(dispatch) => {  
+        const authToken = `Bearer ${localStorage.getItem("token")}`     
         fetch(notebooksLink, {
             method: 'POST',
             headers : {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': authToken
             },
             body:JSON.stringify({name: notebookName})
         })
@@ -71,10 +79,12 @@ export const updateNotebook = (notebook) => {
     const name = notebook.notebookName
 
     return(dispatch) => {
+        const authToken = `Bearer ${localStorage.getItem("token")}`
         fetch(`${notebooksLink}/${notebookId}`, {
             method: 'PATCH',
             headers : {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': authToken
             },
             body: JSON.stringify({name: name})
         })
@@ -88,10 +98,12 @@ export const updateNotebook = (notebook) => {
 
 export const deleteNotebook = (notebookId) => {
     return(dispatch) => {
+        const authToken = `Bearer ${localStorage.getItem("token")}`
         fetch(`${notebooksLink}/${notebookId}`, {
             method: 'DELETE',
             headers : {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': authToken
             }
         })
         .then(response => {
