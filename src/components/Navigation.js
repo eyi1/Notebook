@@ -1,17 +1,17 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { logout } from '../actions/authActions'
 
 //export default class Navigation extends React.Component {
 class Navigation extends React.Component{
     
-    // handleLogout = (e) => {
-    //     e.preventDefault();
-    //     //debugger
-    //     this.props.logout();
-    //     //this.props.history.push('/')
-    //   }
+    handleLogout = (e) => {
+        e.preventDefault();
+        //debugger
+        this.props.logout();
+        this.props.history.push('/')
+      }
     
     render() {
         return (
@@ -30,7 +30,7 @@ class Navigation extends React.Component{
                              <NavDropdown.Item href="/notebooks">my notebooks</NavDropdown.Item>
                             {/* <NavDropdown.Item href="/notes">all notes</NavDropdown.Item> */}
                             <NavDropdown.Divider />
-                                <NavDropdown.Item href="/" onClick={this.handleLogout}>sign out</NavDropdown.Item>
+                                <NavDropdown.Item href="#" onClick={this.handleLogout}>sign out</NavDropdown.Item>
                                 {/* <NavDropdown.Item href="#">sign out</NavDropdown.Item> */}
                         </NavDropdown>
 
@@ -44,5 +44,5 @@ class Navigation extends React.Component{
         );
     }
 }
-export default Navigation
-//export default connect(null, {logout})(Navigation)
+//export default Navigation
+export default connect(null, {logout})(Navigation)
