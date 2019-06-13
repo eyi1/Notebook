@@ -10,7 +10,9 @@ class Navigation extends React.Component{
         e.preventDefault();
         //debugger
         this.props.logout();
-        this.props.history.push('/')
+        //debugger
+        console.log(this.props)
+        //this.props.history.push('/')
       }
     
     render() {
@@ -30,7 +32,7 @@ class Navigation extends React.Component{
                              <NavDropdown.Item href="/notebooks">my notebooks</NavDropdown.Item>
                             {/* <NavDropdown.Item href="/notes">all notes</NavDropdown.Item> */}
                             <NavDropdown.Divider />
-                                <NavDropdown.Item href="#" onClick={this.handleLogout}>sign out</NavDropdown.Item>
+                                <NavDropdown.Item href="/" onClick={this.handleLogout}>sign out</NavDropdown.Item>
                                 {/* <NavDropdown.Item href="#">sign out</NavDropdown.Item> */}
                         </NavDropdown>
 
