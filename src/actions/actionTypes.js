@@ -6,7 +6,7 @@ export const LOGOUT = "LOGOUT"
 // export const RESET_FORM = "RESET_FORM"
 
 //Users Attributes
-export const REQUEST_NOTEBOOKS= "RREQUEST_NOTEBOOKS"
+export const REQUEST_NOTEBOOKS= "REQUEST_NOTEBOOKS"
 export const ADD_NOTEBOOK = "ADD_NOTEBOOK"
 export const UPDATE_NOTEBOOK = "UPDATE_NOTEBOOK"
 export const DELETE_NOTEBOOK = "DELETE_NOTEBOOK"
