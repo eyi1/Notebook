@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 //import { Switch, Route, Link } from "react-router-dom";
 import Signup from './containers/Signup';
 import Login from './containers/Login';
@@ -21,25 +21,12 @@ class App extends Component {
           <div className="navbar">
           <Navigation />
           </div>
-        </header>
-          <Router>
-            <React.Fragment>
-             <Route exact path="/signup" component={Signup} />
-             <Route exact path="/login" component={Login} />
-             <Route exact path="/notebooks" component={NotebooksContainer} />
-             <Route exact path="/notebooks/:id/notes" component={NotesContainer} />
-             <Route exact path="/" component={Home} /> 
-            </React.Fragment>
-          </Router>
-         {/* <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-         </a> */}
-
+        </header>       
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/notebooks" component={NotebooksContainer} />
+          <Route exact path="/notebooks/:id/notes" component={NotesContainer} />
+          <Route exact path="/" component={Home} />
       </div>
     );
   }
