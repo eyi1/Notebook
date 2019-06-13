@@ -13,7 +13,7 @@ class NoteBooksContainer extends React.Component {
             name: null,
             show: false,
             isEdit: false,
-            notebookArray: null, //will store a new array of notebooks
+            notebookArray: [], //will store a new array of notebooks
             isSort: false, 
         }
         this.toggleEditButton = this.toggleEditButton.bind(this)
