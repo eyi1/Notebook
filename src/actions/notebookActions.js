@@ -44,9 +44,12 @@ export const getNotebooks = () => {
         })
         .then(response => response.json())
         .then(notebooks => {
+            if (notebooks.message){
+                console.log(notebooks.message)
+            }else{
           dispatch(setNotebooks(notebooks))
           //debugger;
-        })
+        }})
         .catch(error => console.log(error))
     }
 }
