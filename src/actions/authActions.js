@@ -3,27 +3,27 @@ import * as types from './actionTypes'
 const authLink = `/api/v1`
 
 //this function has an authentication request action type
-const authRequest = () => {
-    return {
-      type: types.AUTHENTICATION_REQUEST
-    }
-  }
+// const authRequest = () => {
+//     return {
+//       type: types.AUTHENTICATION_REQUEST
+//     }
+//   }
   
   //this function has an authentication success action type. When there's a success in correct credentials, the server passes a user and token.
-  const authSuccess = (user, token) => {
-    return {
-      type: types.AUTHENTICATION_SUCCESS,
-      user: user,
-      token: token
-    }
-  }
+  // const authSuccess = (user, token) => {
+  //   return {
+  //     type: types.AUTHENTICATION_SUCCESS,
+  //     user: user,
+  //     token: token
+  //   }
+  // }
   //this function has an authentication failure action type. When there are incorrect credentials, the server passes errors.
-  const authFailure = (errors) => {
-    return {
-      type: types.AUTHENTICATION_FAILURE,
-      errors: errors
-    }
-  }
+  // const authFailure = (errors) => {
+  //   return {
+  //     type: types.AUTHENTICATION_FAILURE,
+  //     errors: errors
+  //   }
+  // }
 
   //
 
@@ -73,8 +73,7 @@ const authRequest = () => {
           //debugger;
           dispatch({ //dispatch action
             type: "SET_CURRENT_USER",
-            currentUser: jresp.user
-          
+            currentUser: jresp.user          
           })
           localStorage.setItem("token", jresp.jwt)
         })
@@ -109,6 +108,6 @@ const authRequest = () => {
       localStorage.clear();
       return dispatch({
         type: "DELETE_USER"
-      });
+      });      
     }
   }
