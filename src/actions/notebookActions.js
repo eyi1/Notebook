@@ -45,7 +45,7 @@ export const getNotebooks = () => {
         .then(response => response.json())
         .then(notebooks => {
             if (notebooks.message){
-                console.log(notebooks.message)
+                window.alert(notebooks.message)
             }else{
           dispatch(setNotebooks(notebooks))
           //debugger;
@@ -67,10 +67,13 @@ export const createNotebook = notebookName => {
             body:JSON.stringify({name: notebookName})
         })
         .then(response => response.json())
-        .then(notebook => {          
+        .then(notebook => { 
+            if (notebook.message){
+                window.alert(notebook.message)
+            }else{         
             //console.log('D')   
             dispatch(addNotebook(notebook))
-        })
+        }})
          .catch(error => console.log(error))
     }
     //console.log('E')
@@ -93,8 +96,11 @@ export const updateNotebook = (notebook) => {
         })
         .then(response => response.json())
         .then(notebook => {
+            if (notebook.message){
+                window.alert(notebook.message)
+            }else{
             dispatch(setNotebook(notebook))
-        })
+        }})
         .catch(error => console.log(error))
     }
 }
