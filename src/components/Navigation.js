@@ -8,11 +8,7 @@ class Navigation extends React.Component{
     
     handleLogout = (e) => {
         e.preventDefault();
-        //debugger
         this.props.logout();
-        //debugger
-        console.log(this.props)
-        //this.props.history.push('/')
       }
     
     render() {
@@ -27,7 +23,7 @@ class Navigation extends React.Component{
                         <Nav.Link href="/login">login</Nav.Link>
                         
                         
-                        <NavDropdown title="more" id="basic-nav-dropdown" right>
+                        <NavDropdown title="more" id="basic-nav-dropdown" right="true">
                             {/* <NavDropdown.Item href="#action/3.1">my account</NavDropdown.Item> */}
                              <NavDropdown.Item href="/notebooks">my notebooks</NavDropdown.Item>
                             {/* <NavDropdown.Item href="/notes">all notes</NavDropdown.Item> */}
