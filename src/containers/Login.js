@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button, Col } from 'react-bootstrap'
 import { connect } from 'react-redux';
-import {login} from '../actions/authActions'
+import { login } from '../actions/authActions'
 
 class Login extends React.Component {
     constructor(){
@@ -19,13 +19,12 @@ class Login extends React.Component {
     })
     }
 
-    handleOnSubmit = (e) => {
-        //debugger
-        e.preventDefault();
+    handleOnSubmit = event => {
+        event.preventDefault();
         console.log(this.state)
-        if (this.props.login(this.state)) {
-          //this.props.history.push('/notebooks')
-          window.alert("You're Logged In!")
+         if (this.props.login(this.state)) {
+        //   //this.props.history.push('/notebooks')
+           window.alert("You're Logged In!")
         } else {
           window.alert("Sorry, something went wrong. Please try logging in again.")
         }
@@ -34,7 +33,7 @@ class Login extends React.Component {
     render(){
         return(
             <div>
-                <Form className="login-form" onSubmit="handleOnSubmit">
+                <Form className="login-form" onSubmit={this.handleOnSubmit}>
                     <Form.Group as={Col} md="4" controlId="formGridEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control name="email_string" onChange={this.handleOnChange} type="email" placeholder="Enter email" value={this.state.email_string} />
@@ -45,7 +44,7 @@ class Login extends React.Component {
 
                     <Form.Group as={Col} md="4" controlId="formGridPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control name="password" onChange={this.handleOnChange }type="password" placeholder="Password" value={this.state.password} />
+                        <Form.Control name="password" onChange={this.handleOnChange} type="password" placeholder="Password" value={this.state.password} />
                     </Form.Group>
                     <Button className="login-btn" variant="primary" type="submit">
                         Login
@@ -56,5 +55,4 @@ class Login extends React.Component {
     }
 }
 
-//export default Login
 export default connect(null, {login})(Login)
