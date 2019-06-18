@@ -9,15 +9,13 @@ import Login from './containers/Login';
 import NotebooksContainer from './containers/NotebooksContainer'
 import NotesContainer from './containers/NotesContainer'
 import Home from './containers/Home'
-// import Notes from './components/Notes'
-//import logo from './logo.svg';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="navbar">
           <Navigation />
           </div>
